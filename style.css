@@ -28,6 +28,14 @@ nav ul li {
     margin-right: 15px;
 }
 
+nav ul li a.active {
+    background-color: aqua; /* Zmiana koloru tła dla aktywnej zakładki */
+    color: black; /* Kolor tekstu dla aktywnej zakładki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    padding: 5px 10px; /* Wewnętrzny odstęp */
+}
+
 nav ul li a {
     color: white;
     text-decoration: none;
