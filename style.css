@@ -53,7 +53,67 @@ main {
     border-radius: 8px;
     margin-bottom: 20px; /* Odstęp od stopki */
 }
+/* Stylizacja głównych sekcji */
+main {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9; /* Jasne tło dla głównych sekcji */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień dla lepszego efektu */
+}
 
+/* Stylizacja nagłówków w sekcjach */
+h2 {
+    color: #333; /* Ciemniejszy kolor dla nagłówków */
+    margin-top: 20px; /* Odstęp nad nagłówkiem */
+    border-bottom: 2px solid #ccc; /* Podkreślenie nagłówka */
+    padding-bottom: 5px; /* Odstęp pod nagłówkiem */
+}
+
+/* Stylizacja dla list w sekcjach */
+ul {
+    list-style-type: none; /* Usunięcie punktów z list */
+    padding: 0; /* Usunięcie paddingu */
+}
+
+li {
+    margin: 10px 0; /* Odstępy między elementami listy */
+    padding: 10px;
+    border: 1px solid #ddd; /* Szary obramowanie dla elementów listy */
+    border-radius: 5px; /* Zaokrąglenie rogów elementów listy */
+    background-color: #fff; /* Białe tło dla elementów listy */
+    transition: background-color 0.3s; /* Płynne przejście dla efektu najechania */
+}
+
+/* Efekt najechania na elementy listy */
+li:hover {
+    background-color: #f0f0f0; /* Jaśniejszy kolor tła przy najechaniu */
+}
+
+/* Stylizacja artykułów */
+article {
+    margin: 10px 0; /* Odstępy między artykułami */
+    padding: 15px;
+    border: 1px solid #ddd; /* Szary obramowanie dla artykułów */
+    border-radius: 5px; /* Zaokrąglenie rogów artykułów */
+    background-color: #f9f9f9; /* Jasne tło dla artykułów */
+}
+
+/* Linki w sekcjach */
+a {
+    color: #007bff; /* Kolor niebieski dla linków */
+    text-decoration: none; /* Usunięcie podkreślenia z linków */
+}
+
+a:hover {
+    text-decoration: underline; /* Podkreślenie przy najechaniu */
+}
+
+/* Stylizacja dla sekcji mini przewodników */
+#mini-guides h3 {
+    margin-top: 15px; /* Odstęp nad nagłówkiem */
+    color: #555; /* Ciemniejszy kolor dla podnagłówków */
+}
 section {
     margin-bottom: 20px;
 }
