@@ -13,7 +13,7 @@ document.getElementById('showImageBtn').addEventListener('click', function() {
 
     // Ustaw tytuł utworu
     const yourSongTitle = " - Travis Scott"; // Zmień tytuł utworu
-    songTitle.textContent = yourSongTitle; // Ustaw nowy tytuł
+    songTitle.textContent = Travis Scott; // Ustaw nowy tytuł
 
     playPauseBtn.addEventListener("click", function() {
         if (audio.paused) {
