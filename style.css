@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #1a1a1a;  /* Ciemne tło */
     color: #f1f1f1;  /* Jasny tekst */
     min-height: 100vh;
 }
