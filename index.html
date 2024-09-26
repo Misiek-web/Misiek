@@ -104,7 +104,8 @@
     </div>
 </div>
 
-<footer style="position: fixed; bottom: 0; width: 100%; background-color: #222; color: white; text-align: center; padding: 10px;">
+<!-- Stopka -->
+<footer style="background-color: #222; color: white; text-align: center; padding: 10px;">
     <p>&copy; 2024 Misiek Industries</p>
     <p>
         <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
@@ -169,71 +170,6 @@
         }
     });
 </script>
-
-<style>
-    /* Dodanie stylów dla modal */
-    .modal {
-        display: none; /* Ukryj modal domyślnie */
-        position: fixed; /* Pozostaje na miejscu */
-        z-index: 1; /* Na wierzchu */
-        left: 0;
-        top: 0;
-        width: 100%; /* Szerokość 100% */
-        height: 100%; /* Wysokość 100% */
-        overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
-        background-color: rgb(0,0,0); /* Czarny z przezroczystością */
-        background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
-    }
-
-    .modal-content {
-        background-color: #333; /* Ciemniejsze tło modalnego okna */
-        margin: 15% auto; /* 15% od góry i centrowane */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Szerokość */
-        border-radius: 10px; /* Zaokrąglenie */
-        color: #fff; /* Jasny kolor tekstu */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    .close {
-        color: #aaa;
-        float: right; /* Prawe górne rogi */
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: white; /* Zmiana koloru przy najechaniu */
-        text-decoration: none;
-        cursor: pointer;
-    }
-    
-    #musicPlayer {
-        background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
-        color: white; /* Kolor tekstu */
-        padding: 10px;
-        border-radius: 10px; /* Zaokrąglenie rogów */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    #playPauseBtn {
-        background-color: transparent; /* Bez tła */
-        border: none; /* Bez ramki */
-        border-radius: 50%; /* Okrągły przycisk */
-        width: 40px; /* Szerokość przycisku */
-        height: 40px; /* Wysokość przycisku */
-        display: flex; /* Użycie flexbox */
-        align-items: center; /* Wyśrodkowanie */
-        justify-content: center; /* Wyśrodkowanie */
-        transition: background-color 0.3s; /* Płynne przejście */
-    }
-
-    #playPauseBtn:hover {
-        background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
-    }
-</style>
 
 </body>
 </html>
