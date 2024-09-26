@@ -79,6 +79,25 @@
     }
 </script>
 
+ <script>
+    const audio = document.getElementById("audio");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const songTitle = document.getElementById("songTitle");
+
+    // Ustaw tytuł utworu
+    songTitle.textContent = " - Tytuł utworu"; // Zmień tytuł utworu
+
+    playPauseBtn.addEventListener("click", function() {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.textContent = "Pause"; // Zmiana tekstu przycisku na "Pause"
+        } else {
+            audio.pause();
+            playPauseBtn.textContent = "Play"; // Zmiana tekstu przycisku na "Play"
+        }
+    });
+</script>
+
 <style>
     /* Dodanie stylów dla modal */
     .modal {
@@ -118,6 +137,30 @@
         text-decoration: none;
         cursor: pointer;
     }
+    
+    #musicPlayer {
+        background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
+        color: white; /* Kolor tekstu */
+        padding: 10px;
+        border-radius: 10px; /* Zaokrąglenie rogów */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+
+    }
+
+
+    #playPauseBtn {
+        background-color: aqua; /* Kolor przycisku */
+        border: none;
+        border-radius: 5px; /* Zaokrąglenie rogów */
+        padding: 5px 10px;
+        cursor: pointer; /* Kursor zmienia się na wskazujący */
+
+    }
+
+    #playPauseBtn:hover {
+        background-color: #00cccc; /* Ciemniejszy kolor przy najechaniu */
+    }
+
 </style>
 
 </body>
