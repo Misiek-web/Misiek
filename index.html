@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-
+        /* Usunięcie obramowania odtwarzacza */
+        #musicPlayer {
+            padding: 5px;
+            background-color: #f9f9f9;
         }
 
         /* Styl dla modalnego okna */
@@ -20,11 +23,11 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.8); /* Ciemne tło */
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color: #333; /* Ciemne tło modalnego okna */
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
@@ -32,6 +35,7 @@
             max-width: 500px;
             border-radius: 10px;
             text-align: center;
+            color: white; /* Jasny tekst */
         }
 
         .close {
@@ -44,7 +48,7 @@
 
         .close:hover,
         .close:focus {
-            color: #000;
+            color: #fff; /* Jaśniejszy kolor po najechaniu */
             text-decoration: none;
             cursor: pointer;
         }
@@ -70,7 +74,7 @@
             <polygon points="12,10 12,20 20,15" fill="black" />
         </svg>
     </button>
-    <span id="songTitle"> - Travis Scott</span>
+    <span id="songTitle"> - Tytuł utworu</span>
 </div>
 
 <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
@@ -143,12 +147,12 @@
 <div id="contactModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
+        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com" style="color: #fff;">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
     </div>
 </div>
 
 <!-- Stopka -->
-<footer style="background-color: #222; color: black; text-align: center; padding: 10px;">
+<footer style="background-color: #222; color: white; text-align: center; padding: 10px;">
     <p>&copy; 2024 Misiek Industries</p>
     <p>
         <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
@@ -179,37 +183,9 @@
 
     window.onclick = function(event) {
         if (event.target === contactModal) {
-            contactModal.style.display = "none"; // Zamknięcie modalnego okna po kliknięciu poza nim
+            contactModal.style.display = "none"; // Ukrycie modalnego okna po kliknięciu w tło
         }
     }
-
-    // Odtwarzacz audio
-    const audio = document.getElementById('audio');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    let isPlaying = false;
-
-    playPauseBtn.addEventListener('click', function() {
-        isPlaying = !isPlaying;
-        if (isPlaying) {
-            audio.play();
-            playPauseBtn.innerHTML = `
-                <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <circle cx="15" cy="15" r="15" fill="white" />
-                    <rect x="10" y="10" width="4" height="10" fill="black" />
-                    <rect x="16" y="10" width="4" height="10" fill="black" />
-                </svg>
-            `;
-        } else {
-            audio.pause();
-            playPauseBtn.innerHTML = `
-                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <circle cx="15" cy="15" r="15" fill="white" />
-                    <polygon points="12,10 12,20 20,15" fill="black" />
-                </svg>
-            `;
-        }
-    });
 </script>
-
 </body>
 </html>
