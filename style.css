@@ -1,4 +1,4 @@
-/* Stylizacja ogólna - ciemny motyw */
+/* Ciemny motyw */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,9 +8,8 @@ body {
     min-height: 100vh;
 }
 
-/* Gradient nagłówka */
 header {
-    background: linear-gradient(to right, #f97316, #f43f5e);  /* Gradient nagłówka */
+    background: linear-gradient(to right, #f97316, #f43f5e);
     padding: 20px;
     text-align: center;
     color: white;
@@ -32,35 +31,22 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Główna zawartość */
 main {
     padding: 20px;
-    background-color: #2e2e2e;  /* Ciemniejsze tło dla zawartości */
+    background-color: #2e2e2e;  /* Ciemniejsze tło */
     border-radius: 8px;
 }
 
-/* Stylizacja przycisków */
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
+section {
+    margin-bottom: 20px;
 }
 
-button:hover {
-    background-color: #45a049;
-}
-
-/* Stylizacja stopki */
 footer {
-    position: fixed;  /* Stopka będzie zawsze przyklejona w rogu ekranu */
-    bottom: 10px;     /* Odległość od dołu ekranu */
-    right: 10px;      /* Odległość od prawej krawędzi ekranu */
-    color: #f1f1f1;   /* Jasny kolor tekstu */
-    font-size: 16px;
-    background-color: transparent;  /* Brak tła */
-    margin: 0;
-    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
