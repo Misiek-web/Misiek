@@ -9,32 +9,34 @@ body {
 
 /* Styl nagłówka */
 header {
-    background-color: #1e1e1e; /* Ciemne tło nagłówka */
-    padding: 20px 0; /* Padding wewnątrz nagłówka */
+    background: linear-gradient(90deg, #ff7f00, #ff0000); /* Gradient pomarańczowy-czerwony */
+    padding: 20px 0;
     text-align: center; /* Wyśrodkowanie tekstu */
 }
 
 header h1 {
     margin: 0;
     color: #ffffff; /* Jasny kolor tekstu */
+    font-size: 36px;
+    letter-spacing: 2px;
 }
 
 /* Nawigacja */
 nav ul {
-    list-style: none; /* Usunięcie kropek z listy */
+    list-style: none;
     padding: 0;
     margin: 10px 0;
 }
 
 nav ul li {
     display: inline-block;
-    margin: 0 15px; /* Margines między elementami nawigacji */
+    margin: 0 15px;
 }
 
 nav a {
     color: #ffffff; /* Kolor linków */
-    text-decoration: none; /* Brak podkreślenia */
-    transition: color 0.3s; /* Płynne przejście na hover */
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 nav a:hover {
@@ -73,32 +75,34 @@ article a {
 }
 
 article a:hover {
-    text-decoration: underline; /* Podkreślenie przy hover */
+    text-decoration: underline;
 }
 
 /* Styl odtwarzacza muzyki */
 #musicPlayer {
-    background-color: rgba(0, 0, 0, 0.7); /* Ciemne tło, lekko przezroczyste */
+    background-color: rgba(0, 0, 0, 0.7); /* Ciemne, lekko przezroczyste tło */
     color: white; /* Kolor tekstu */
     padding: 10px;
-    border-radius: 10px; /* Zaokrąglone rogi */
-    margin: 20px 0;
-    display: inline-block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtelny cień */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień */
+    position: fixed; /* Przyklejenie odtwarzacza do prawego górnego rogu */
+    top: 20px; /* Odstęp od góry */
+    right: 20px; /* Odstęp od prawej */
+    z-index: 1000; /* Na wierzchu */
 }
 
 /* Styl przycisku play/pause */
 #playPauseBtn {
-    background-color: transparent; /* Przezroczyste tło */
-    border: none; /* Brak obramowania */
-    border-radius: 50%; /* Okrągły kształt */
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer; /* Ręka na przycisku */
-    transition: background-color 0.3s; /* Płynna zmiana tła na hover */
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #playPauseBtn:hover {
@@ -119,15 +123,53 @@ article a:hover {
 }
 
 .modal-content {
-    background-color: #333; /* Ciemne tło okna modalnego */
-    color: #fff; /* Jasny kolor tekstu */
+    background-color: #333;
+    color: #fff;
     margin: 15% auto;
     padding: 20px;
-    border-radius: 10px; /* Zaokrąglone rogi */
-    width: 80%; /* Szerokość okna modalnego */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtelny cień */
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Stopka */
 footer {
-    background-color: #1e1
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style dla list */
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Dodatkowe style dla artykułów */
+article {
+    margin-bottom: 20px;
+}
+
+/* Linki w głównej sekcji */
+main a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
