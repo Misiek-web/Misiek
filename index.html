@@ -1,4 +1,4 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,7 @@ a<!DOCTYPE html>
     <h1>2024 Misiek Industries</h1>
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="pliki.html">Pliki</a></li>
             <li><a href="#" id="contactLink">Kontakt</a></li>
         </ul>
@@ -24,18 +24,24 @@ a<!DOCTYPE html>
         <h2>Pozdrawiam</h2>
         <p>info ;).</p>
     </section>
+
+    <section id="about">
+        <h2>O nas</h2>
+        <p>Jakieś treści.</p>
+    </section>
 </main>
 
 <!-- Wyskakujące okno kontaktowe -->
 <div id="contactModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
+        <p>Skontaktuj się ze mną: <a href="mailto:twojemail@example.com">twojemail@example.com</a></p>
     </div>
 </div>
 
 <footer>
     <p>&copy; 2024 Misiek Industries</p>
+    <p><a href="#privacy">Polityka Prywatności</a> | <a href="#terms">Warunki Użytkowania</a> | <a href="#cookies">Pliki Cookies</a></p>
 </footer>
 
 <script>
@@ -77,16 +83,18 @@ a<!DOCTYPE html>
         height: 100%; /* Wysokość 100% */
         overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
         background-color: rgb(0,0,0); /* Czarny z przezroczystością */
-        background-color: rgba(0,0,0,0.4); /* Ciemne tło */
+        background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
     }
 
     .modal-content {
-        background-color: #fefefe;
+        background-color: #333; /* Ciemniejsze tło modalnego okna */
         margin: 15% auto; /* 15% od góry i centrowane */
         padding: 20px;
         border: 1px solid #888;
         width: 80%; /* Szerokość */
         border-radius: 10px; /* Zaokrąglenie */
+        color: #fff; /* Jasny kolor tekstu */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
     }
 
     .close {
@@ -98,7 +106,7 @@ a<!DOCTYPE html>
 
     .close:hover,
     .close:focus {
-        color: black; /* Zmiana koloru przy najechaniu */
+        color: white; /* Zmiana koloru przy najechaniu */
         text-decoration: none;
         cursor: pointer;
     }
