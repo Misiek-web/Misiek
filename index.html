@@ -157,8 +157,8 @@
 
 <div id="themeToggle">
     <div class="circle"></div>
-    <div class="icon sun">🌞</div>
-    <div class="icon moon">🌜</div>
+    <div class="icon sun" style="color: black;">🌞</div> <!-- Czarna ikona słońca -->
+    <div class="icon moon" style="color: black;">🌜</div> <!-- Czarna ikona półksiężyca -->
 </div>
 
 <div id="musicPlayer">
@@ -168,7 +168,7 @@
             <polygon points="12,10 12,20 20,15" fill="black" />
         </svg>
     </button>
-    <span id="songTitle"> - Travis Scott</span>
+    <span id="songTitle"> - Tytuł utworu</span>
 </div>
 
 <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
@@ -191,7 +191,6 @@
 <footer style="position: fixed; bottom: 0; width: 100%; background-color: #222; color: white; text-align: center; padding: 10px;">
     <p>&copy; 2024 Misiek Industries</p>
     <p>
-        <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
         <a href="#terms" style="color: #ddd;">Warunki Użytkowania</a> |
         <a href="#cookies" style="color: #ddd;">Pliki Cookies</a>
     </p>
@@ -257,7 +256,15 @@
         document.body.classList.toggle("dark-mode"); // Przełącz tryb
         document.body.classList.toggle("light-mode");
         themeToggle.classList.toggle("dark");
+        const sunIcon = document.querySelector('.icon.sun');
+        const moonIcon = document.querySelector('.icon.moon');
+        sunIcon.style.display = sunIcon.style.display === 'none' ? 'block' : 'none'; // Przełącz wyświetlanie ikony słońca
+        moonIcon.style.display = moonIcon.style.display === 'none' ? 'block' : 'none'; // Przełącz wyświetlanie ikony półksiężyca
     });
+
+    // Ukryj ikony przy starcie
+    document.querySelector('.icon.sun').style.display = 'block'; // Wyświetl ikonę słońca
+    document.querySelector('.icon.moon').style.display = 'none'; // Ukryj ikonę półksiężyca
 </script>
 
 </body>
