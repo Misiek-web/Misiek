@@ -29,7 +29,7 @@ nav ul li {
 }
 
 nav ul li a.active {
-    background-color: aqua; /* Zmiana koloru tła dla aktywnej zakładki */
+    background-color: rgba(0, 255, 255, 0.5); /* Aqua z 50% przezroczystością */
     color: black; /* Kolor tekstu dla aktywnej zakładki */
     font-weight: bold; /* Pogrubienie tekstu */
     border-radius: 5px; /* Zaokrąglenie rogów */
