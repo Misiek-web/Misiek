@@ -3,14 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;  /* Ciemnoszare tło */
+    background-color: #1a1a1a;  /* Ciemne tło */
     color: #f1f1f1;  /* Jasny tekst */
     min-height: 100vh;
 }
 
 /* Gradient nagłówka */
 header {
-    background: linear-gradient(to right, #f97316, #f43f5e);  /* Zostawiamy gradient */
+    background: linear-gradient(to right, #f97316, #f43f5e);  /* Gradient nagłówka */
     padding: 20px;
     text-align: center;
     color: white;
@@ -32,19 +32,14 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Zawartość główna */
+/* Główna zawartość */
 main {
     padding: 20px;
-    background-color: #2e2e2e;  /* Trochę jaśniejsze tło dla głównej treści */
-    border-radius: 8px;  /* Zaokrąglone rogi */
+    background-color: #2e2e2e;  /* Ciemniejsze tło dla zawartości */
+    border-radius: 8px;
 }
 
-/* Stylizacja sekcji */
-section {
-    margin-bottom: 20px;
-}
-
-/* Przyciski */
+/* Stylizacja przycisków */
 button {
     background-color: #4CAF50;
     color: white;
@@ -58,27 +53,13 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Stylizacja obrazka */
-img {
-    margin-top: 10px;
-    max-width: 100%;
-}
-
 /* Stylizacja stopki */
 footer {
-    background-color: #333;  /* Ciemniejsza stopka */
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-footer {
-    position: absolute;  /* Pozycjonowanie absolutne */
-    bottom: 10px;         /* Odległość od dołu ekranu */
-    right: 10px;          /* Odległość od prawej krawędzi */
-    background-color: transparent; /* Opcjonalnie - tło stopki, może być przezroczyste */
-    color: white;         /* Kolor tekstu */
-    font-size: 16px;      /* Rozmiar tekstu */
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #f1f1f1;  /* Jasny kolor tekstu */
+    font-size: 16px;
     margin: 0;
     padding: 5px 10px;
 }
