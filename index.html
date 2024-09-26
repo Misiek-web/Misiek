@@ -6,8 +6,35 @@
     <title>Misiek.pl</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            transition: background-color 0.5s ease; /* Animacja dla zmiany tła */
+        }
+        .light-mode {
+            background-color: white; /* Jasne tło */
+            color: black; /* Ciemny tekst */
+        }
+        .dark-mode {
+            background-color: #121212; /* Ciemne tło */
+            color: white; /* Jasły tekst */
+        }
+        #themeToggle {
+            position: fixed;
+            top: 10px;
+            right: 60px;
+            padding: 10px;
+            background-color: #888;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Animacja zmiany koloru tła przycisku */
+        }
+        #themeToggle:hover {
+            background-color: #666; /* Ciemniejszy kolor przy najechaniu */
+        }
+    </style>
 </head>
-<body>
+<body class="light-mode"> <!-- Domyślny tryb jasny -->
 
 <header>
     <h1>Misiek Industries</h1>
@@ -19,6 +46,7 @@
             <li><a href="https://weather.com/" target="_blank">Pogoda</a></li> <!-- Przyciski pogody -->
         </ul>
     </nav>
+    <button id="themeToggle">Tryb Ciemny</button> <!-- Przełącznik trybu -->
 </header>
 
 <div id="musicPlayer" style="position: fixed; top: 10px; right: 10px; z-index: 10;">
@@ -93,6 +121,14 @@
             audio.pause();
             playPauseBtn.textContent = "Play"; // Zmiana tekstu przycisku na "Play"
         }
+    });
+
+    // Przełącznik trybu ciemnego/jasnego
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode"); // Przełącz tryb
+        document.body.classList.toggle("light-mode");
+        themeToggle.textContent = document.body.classList.contains("dark-mode") ? "Tryb Jasny" : "Tryb Ciemny"; // Zmiana tekstu przycisku
     });
 </script>
 
