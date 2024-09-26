@@ -13,7 +13,7 @@
     <h1>Misiek Industries</h1>
     <nav>
         <ul>
-            <li><a href="index.html" class="active">Home</a></li> <!-- Dodaj klasę active -->
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="pliki.html">Pliki</a></li>
             <li><a href="#" id="contactLink">Kontakt</a></li>
         </ul>
@@ -21,12 +21,16 @@
 </header>
 
 <div id="musicPlayer" style="position: fixed; top: 10px; right: 10px; z-index: 10;">
-    <button id="playPauseBtn">Play</button>
-    <span id="songTitle"> - Travis Scott - FE!N ft. Playboi Carti</span>
+    <button id="playPauseBtn" style="background: none; border: none; padding: 0; cursor: pointer;">
+        <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+            <circle cx="15" cy="15" r="15" fill="white" />
+            <polygon points="12,10 12,20 20,15" fill="black" />
+        </svg>
+    </button>
+    <span id="songTitle"> - Tytuł utworu</span>
 </div>
 
 <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
-
 
 <main>
     <section id="home">
@@ -79,7 +83,7 @@
     }
 </script>
 
- <script>
+<script>
     const audio = document.getElementById("audio");
     const playPauseBtn = document.getElementById("playPauseBtn");
     const songTitle = document.getElementById("songTitle");
@@ -90,10 +94,21 @@
     playPauseBtn.addEventListener("click", function() {
         if (audio.paused) {
             audio.play();
-            playPauseBtn.textContent = "Pause"; // Zmiana tekstu przycisku na "Pause"
+            playPauseBtn.innerHTML = `
+                <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                    <circle cx="15" cy="15" r="15" fill="white" />
+                    <rect x="10" y="10" width="4" height="10" fill="black" />
+                    <rect x="16" y="10" width="4" height="10" fill="black" />
+                </svg>
+            `;
         } else {
             audio.pause();
-            playPauseBtn.textContent = "Play"; // Zmiana tekstu przycisku na "Play"
+            playPauseBtn.innerHTML = `
+                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                    <circle cx="15" cy="15" r="15" fill="white" />
+                    <polygon points="12,10 12,20 20,15" fill="black" />
+                </svg>
+            `;
         }
     });
 </script>
@@ -144,23 +159,23 @@
         padding: 10px;
         border-radius: 10px; /* Zaokrąglenie rogów */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-
     }
 
-
     #playPauseBtn {
-        background-color: aqua; /* Kolor przycisku */
-        border: none;
-        border-radius: 5px; /* Zaokrąglenie rogów */
-        padding: 5px 10px;
-        cursor: pointer; /* Kursor zmienia się na wskazujący */
-
+        background-color: transparent; /* Bez tła */
+        border: none; /* Bez ramki */
+        border-radius: 50%; /* Okrągły przycisk */
+        width: 40px; /* Szerokość przycisku */
+        height: 40px; /* Wysokość przycisku */
+        display: flex; /* Użycie flexbox */
+        align-items: center; /* Wyśrodkowanie */
+        justify-content: center; /* Wyśrodkowanie */
+        transition: background-color 0.3s; /* Płynne przejście */
     }
 
     #playPauseBtn:hover {
-        background-color: #00cccc; /* Ciemniejszy kolor przy najechaniu */
+        background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
     }
-
 </style>
 
 </body>
