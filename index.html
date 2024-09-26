@@ -18,160 +18,19 @@
             background-color: #121212; /* Ciemne tło */
             color: white; /* Jasły tekst */
         }
-
         #themeToggle {
             position: fixed;
             top: 10px;
-            left: 10px; /* Zmiana na lewy górny róg */
-            width: 60px; /* Szerokość przycisku */
-            height: 30px; /* Wysokość przycisku */
+            right: 60px;
+            padding: 10px;
             background-color: #888;
-            border-radius: 15px; /* Zaokrąglenie */
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Ustawienie elementów po bokach */
-            padding: 5px;
             transition: background-color 0.3s ease; /* Animacja zmiany koloru tła przycisku */
         }
-        
-        .toggle-ball {
-            width: 22px; /* Szerokość kulki */
-            height: 22px; /* Wysokość kulki */
-            background-color: white; /* Kolor kulki */
-            border-radius: 50%; /* Okrągłe tło */
-            transition: transform 0.3s ease; /* Animacja dla kulki */
-            position: relative; /* Ustawienie kontekstu pozycjonowania */
-        }
-
-        .dark-mode #themeToggle {
-            background-color: #444; /* Ciemniejsze tło w trybie ciemnym */
-        }
-
-        .dark-mode .toggle-ball {
-            transform: translateX(20px); /* Przesunięcie kulki w prawo */
-        }
-
-        /* Ikony słońca i półksiężyca */
-        .sun-icon,
-        .moon-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 20px; /* Szerokość ikon */
-            height: 20px; /* Wysokość ikon */
-            font-size: 18px; /* Rozmiar czcionki */
-            color: #FFD700; /* Kolor słońca */
-            transition: opacity 0.3s ease; /* Animacja dla ikon */
-        }
-
-        .moon-icon {
-            color: #ccc; /* Kolor półksiężyca */
-            opacity: 0; /* Domyślnie niewidoczny */
-        }
-
-        .dark-mode .sun-icon {
-            opacity: 0; /* Ukrycie słońca w trybie ciemnym */
-        }
-
-        .dark-mode .moon-icon {
-            opacity: 1; /* Wyświetlenie półksiężyca w trybie ciemnym */
-        }
-
-        #musicPlayer {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
-            color: white; /* Kolor tekstu */
-            padding: 10px;
-            border-radius: 10px; /* Zaokrąglenie rogów */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-        }
-
-        #playPauseBtn {
-            width: 40px; /* Szerokość przycisku */
-            height: 40px; /* Wysokość przycisku */
-            background-color: white; /* Tło przycisku */
-            border: none;
-            border-radius: 50%; /* Okrągłe tło */
-            cursor: pointer; /* Kursor zmienia się na wskazujący */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Cień dla przycisku */
-            transition: background-color 0.3s; /* Animacja dla koloru tła przycisku */
-        }
-
-        #playPauseBtn:hover {
-            background-color: #f0f0f0; /* Jaśniejszy kolor przy najechaniu */
-        }
-
-        .play-icon {
-            width: 0; 
-            height: 0; 
-            border-left: 10px solid black; 
-            border-top: 6px solid transparent; 
-            border-bottom: 6px solid transparent; 
-            transition: opacity 0.3s; /* Animacja dla ikony */
-        }
-
-        .pause-icon {
-            width: 12px; 
-            height: 20px; 
-            background-color: black; 
-            border-radius: 3px; 
-            margin: 0 3px; 
-            display: inline-block;
-            transition: opacity 0.3s; /* Animacja dla ikony */
-        }
-
-        /* Stylizacja dla sekcji z opisem */
-        #home {
-            background-color: rgba(255, 255, 255, 0.9); /* Tło jasne w trybie jasnym */
-            padding: 20px;
-            border-radius: 10px; /* Zaokrąglenie rogów */
-            transition: background-color 0.5s ease; /* Animacja zmiany tła */
-            border: none; /* Usunięcie obramowania */
-        }
-        .dark-mode #home {
-            background-color: rgba(30, 30, 30, 0.8); /* Ciemne tło w trybie ciemnym */
-        }
-
-        /* Styl modalnego okna */
-        .modal {
-            display: none; /* Ukryte domyślnie */
-            position: fixed;
-            z-index: 1000; /* Na wierzchu */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto; /* W przypadku przewijania */
-            background-color: rgb(0,0,0); /* Czarny tło */
-            background-color: rgba(0,0,0,0.4); /* Ciemne przezroczyste tło */
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 15% od góry i wyśrodkowane */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* Szerokość */
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        #themeToggle:hover {
+            background-color: #666; /* Ciemniejszy kolor przy najechaniu */
         }
     </style>
 </head>
@@ -187,57 +46,56 @@
             <li><a href="https://weather.com/" target="_blank">Pogoda</a></li> <!-- Przyciski pogody -->
         </ul>
     </nav>
-    <div id="themeToggle">
-        <div class="moon-icon">🌙</div> <!-- Ikona półksiężyca -->
-        <div class="toggle-ball"></div> <!-- Kulka przełączająca -->
-        <div class="sun-icon">☀️</div> <!-- Ikona słońca -->
-    </div>
+    <button id="themeToggle">Tryb Ciemny</button> <!-- Przełącznik trybu -->
 </header>
 
-<div id="musicPlayer">
-    <button id="playPauseBtn">
-        <div class="play-icon"></div> <!-- Ikona Play -->
-        <div class="pause-icon" style="display: none;"></div> <!-- Ikona Pause -->
-    </button>
+<div id="musicPlayer" style="position: fixed; top: 10px; right: 10px; z-index: 10;">
+    <button id="playPauseBtn">Play</button>
     <span id="songTitle"> - Tytuł utworu</span>
 </div>
 
-<audio id="audio" src="twoja_piosenka.mp3"></audio> <!-- Podmiana na odpowiedni plik -->
+<audio id="audio" src="muzyka.mp3" preload="auto"></audio>
 
 <main>
     <section id="home">
         <h2>Pozdrawiam</h2>
-        <p>Opis tutaj.</p>
-        <p class="hidden-email">Mój email: example@example.com</p> <!-- Dodanie klasy do ukrycia -->
+        <p>Najlepsza strona na świecie, pociłem się przy niej i nocki zawalałem.</p>
     </section>
 </main>
 
-<footer>
-    <p>&copy; 2024 Misiek Industries</p>
-</footer>
-
-<!-- Modal dla kontaktu -->
+<!-- Wyskakujące okno kontaktowe -->
 <div id="contactModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Kontakt</h2>
-        <p>W celu kontaktu proszę użyć formularza kontaktowego.</p>
+        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
     </div>
 </div>
+
+<footer style="position: fixed; bottom: 0; width: 100%; background-color: #222; color: white; text-align: center; padding: 10px;">
+    <p>&copy; 2024 Misiek Industries</p>
+    <p>
+        <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
+        <a href="#terms" style="color: #ddd;">Warunki Użytkowania</a> |
+        <a href="#cookies" style="color: #ddd;">Pliki Cookies</a>
+    </p>
+</footer>
 
 <script>
     const contactModal = document.getElementById("contactModal");
     const closeBtn = document.querySelector(".close");
-    
+
+    // Funkcja do otwierania modalnego okna kontaktowego
     function showContact() {
         contactModal.style.display = "block"; // Wyświetlenie modalnego okna
     }
 
+    // Event listener dla kontaktu
     document.getElementById("contactLink").addEventListener("click", function(event) {
         event.preventDefault();
         showContact();
     });
 
+    // Zamykanie modalnego okna
     closeBtn.onclick = function() {
         contactModal.style.display = "none"; // Ukrycie modalnego okna
     }
@@ -248,43 +106,94 @@
         }
     }
 
-    // Skrypt do przełączania trybu jasnego/ciemnego
-    const themeToggle = document.getElementById("themeToggle");
-    const body = document.body;
-
-    themeToggle.addEventListener("click", function() {
-        body.classList.toggle("dark-mode");
-        body.classList.toggle("light-mode");
-        const isDarkMode = body.classList.contains("dark-mode");
-        
-        // Zmiana tekstu przycisku
-        const toggleBall = document.querySelector(".toggle-ball");
-        toggleBall.style.transform = isDarkMode ? "translateX(20px)" : "translateX(0)"; // Zmiana przesunięcia kulki
-    });
-
-    // Odtwarzacz muzyki
     const audio = document.getElementById("audio");
     const playPauseBtn = document.getElementById("playPauseBtn");
     const songTitle = document.getElementById("songTitle");
-    songTitle.textContent = " - Tytuł utworu"; // Ustaw tytuł utworu
+
+    // Ustaw tytuł utworu
+    songTitle.textContent = " - Tytuł utworu"; // Zmień tytuł utworu
 
     playPauseBtn.addEventListener("click", function() {
-        const playIcon = playPauseBtn.querySelector(".play-icon");
-        const pauseIcon = playPauseBtn.querySelector(".pause-icon");
-        
         if (audio.paused) {
             audio.play();
-            playIcon.style.display = "none"; // Ukrycie ikony Play
-            pauseIcon.style.display = "inline-block"; // Wyświetlenie ikony Pause
+            playPauseBtn.textContent = "Pause"; // Zmiana tekstu przycisku na "Pause"
         } else {
             audio.pause();
-            playIcon.style.display = "inline-block"; // Wyświetlenie ikony Play
-            pauseIcon.style.display = "none"; // Ukrycie ikony Pause
+            playPauseBtn.textContent = "Play"; // Zmiana tekstu przycisku na "Play"
         }
     });
 
-    // Ukrycie emailu
-    document.querySelector(".hidden-email").style.display = "none"; // Domyślnie ukryty email
+    // Przełącznik trybu ciemnego/jasnego
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode"); // Przełącz tryb
+        document.body.classList.toggle("light-mode");
+        themeToggle.textContent = document.body.classList.contains("dark-mode") ? "Tryb Jasny" : "Tryb Ciemny"; // Zmiana tekstu przycisku
+    });
 </script>
+
+<style>
+    /* Dodanie stylów dla modal */
+    .modal {
+        display: none; /* Ukryj modal domyślnie */
+        position: fixed; /* Pozostaje na miejscu */
+        z-index: 1; /* Na wierzchu */
+        left: 0;
+        top: 0;
+        width: 100%; /* Szerokość 100% */
+        height: 100%; /* Wysokość 100% */
+        overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
+        background-color: rgb(0,0,0); /* Czarny z przezrocznością */
+        background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
+    }
+
+    .modal-content {
+        background-color: #333; /* Ciemniejsze tło modalnego okna */
+        margin: 15% auto; /* 15% od góry i centrowane */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Szerokość */
+        border-radius: 10px; /* Zaokrąglenie */
+        color: #fff; /* Jasny kolor tekstu */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+    }
+
+    .close {
+        color: #aaa;
+        float: right; /* Prawe górne rogi */
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: white; /* Zmiana koloru przy najechaniu */
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    #musicPlayer {
+        background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
+        color: white; /* Kolor tekstu */
+        padding: 10px;
+        border-radius: 10px; /* Zaokrąglenie rogów */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+
+    }
+
+    #playPauseBtn {
+        background-color: aqua; /* Kolor przycisku */
+        border: none;
+        border-radius: 5px; /* Zaokrąglenie rogów */
+        padding: 5px 10px;
+        cursor: pointer; /* Kursor zmienia się na wskazujący */
+
+    }
+
+    #playPauseBtn:hover {
+        background-color: #00cccc; /* Ciemniejszy kolor przy najechaniu */
+    }
+</style>
+
 </body>
 </html>
