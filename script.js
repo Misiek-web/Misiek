@@ -36,5 +36,24 @@ document.getElementById('showImageBtn').addEventListener('click', function() {
         }
     });
 </script>
+    <script>
+    async function fetchWeather() {
+        const apiKey = '50630805fd0a9133d80857b6d339217a'; // Twój klucz API
+        const location = 'Warsaw'; // Zmień na swoją lokalizację, jeśli chcesz
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+
+        if (response.ok) {
+            document.getElementById('location').textContent = data.name;
+            document.getElementById('temperature').textContent = `Temperatura: ${data.main.temp}°C`;
+            document.getElementById('condition').textContent = `Stan: ${data.weather[0].description}`;
+        } else {
+            console.error('Błąd pobierania pogody:', data.message);
+        }
+    }
+
+    // Wywołaj funkcję na załadowanie strony
+    window.onload = fetchWeather;
+</script>
 
 });
