@@ -56,23 +56,23 @@
         modalText.innerHTML = `<h2>Polityka Prywatności</h2>
         <p>Niniejszy dokument polityki prywatności (dalej: Polityka) dostarcza użytkownikom i klientom, którymi w szczególności są uczniowie, rodzice oraz inne osoby korzystające z eduMisiek informacji na temat przetwarzania danych osobowych przez Misiek Industries z siedzibą w Białej Rawskiej.</p>
         <p>Misiek Industries przywiązuje szczególną uwagę do poszanowania prywatności osób, których dane osobowe oraz inne informacje przetwarza w związku z korzystaniem przez te osoby z usług lub produktów oferowanych przez Misiek Industries, w tym świadczonych drogą elektroniczną.</p>
+        <p>Misiek Industries ceni prywatność wszystkich osób i chce dostarczyć im szczegółowych i zrozumiałych informacji na temat celów przetwarzania pozyskiwanych od tych osób danych osobowych lub innych dostarczanych informacji, zasad ich wykorzystywania i stosowanych środków ochrony w związku z korzystaniem przez te osoby z oferowanych im usług i produktów.</p>
         <p>Jeżeli Misiek Industries zbiera dane osobowe i decyduje o celach i środkach ich przetwarzania, jest ich administratorem danych. Administrator danych działa jako spółka kapitałowa pod firmą Misiek Industries z siedzibą w Białej Rawskiej.</p>`;
-        modal.style.display = "block"; // Wyświetlenie modalnego okna
+        modal.style.display = "block";
     }
 
     function showTerms() {
         modalText.innerHTML = `<h2>Warunki Użytkowania</h2>
         <p>Warunki użytkowania określają zasady korzystania z serwisu Misiek Industries, w tym ograniczenia odpowiedzialności.</p>`;
-        modal.style.display = "block"; // Wyświetlenie modalnego okna
+        modal.style.display = "block";
     }
 
     function showCookies() {
         modalText.innerHTML = `<h2>Pliki Cookies</h2>
         <p>Informacje o tym, jakie pliki cookies są wykorzystywane, oraz w jaki sposób użytkownicy mogą je kontrolować.</p>`;
-        modal.style.display = "block"; // Wyświetlenie modalnego okna
+        modal.style.display = "block";
     }
 
-    // Event listener dla linków
     document.getElementById("privacyLink").addEventListener("click", function(event) {
         event.preventDefault();
         showPrivacy();
@@ -88,14 +88,13 @@
         showCookies();
     });
 
-    // Zamykanie modalnego okna
     closeBtn.onclick = function() {
-        modal.style.display = "none"; // Ukrycie modalnego okna
+        modal.style.display = "none";
     }
 
     window.onclick = function(event) {
         if (event.target == modal) {
-            modal.style.display = "none"; // Ukrycie modalnego okna po kliknięciu w tło
+            modal.style.display = "none";
         }
     }
 </script>
