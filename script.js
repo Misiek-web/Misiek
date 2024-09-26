@@ -6,4 +6,7 @@ document.getElementById('showImageBtn').addEventListener('click', function() {
     } else {
         image.style.display = 'none';
     }
+    // Ustaw tytuł utworu
+songTitle.textContent = " - Travis Scott"; // Zmień tytuł utworu
+
 });
