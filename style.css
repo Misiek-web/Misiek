@@ -1,143 +1,87 @@
-/* Ciemny motyw */
+/* Ustawienia ogólne */
 body {
-    font-family: Arial, sans-serif;
+    background-color: #121212; /* Ciemne tło */
+    color: #ffffff; /* Jasny tekst */
+    font-family: Arial, sans-serif; /* Czcionka */
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;  /* Ciemne tło */
-    color: #f1f1f1;  /* Jasny tekst */
-    min-height: 100vh;
 }
 
-/* Nagłówek z gradientem */
+/* Styl nagłówka */
 header {
-    background: linear-gradient(to right, #f97316, #f43f5e);
-    padding: 20px;
-    text-align: center;
-    color: white;
+    background-color: #1e1e1e; /* Ciemne tło nagłówka */
+    padding: 10px; /* Padding nagłówka */
+    text-align: center; /* Wyśrodkowanie tekstu */
 }
 
-/* Nawigacja */
+header h1 {
+    margin: 0; /* Brak marginesu dla nagłówka */
+}
+
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    list-style: none; /* Brak kropek na liście */
+    padding: 0; /* Brak paddingu */
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 15px;
+    display: inline; /* Wyświetlanie w linii */
+    margin: 0 15px; /* Marginesy dla linków */
 }
 
-nav ul li a.active {
-    background-color: rgba(0, 255, 255, 0.5); /* Aqua z 50% przezroczystością */
-    color: black; /* Kolor tekstu dla aktywnej zakładki */
-    font-weight: bold; /* Pogrubienie tekstu */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    padding: 5px 10px; /* Wewnętrzny odstęp */
+nav a {
+    color: #ffffff; /* Jasny kolor linków */
+    text-decoration: none; /* Brak podkreślenia */
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    transition: background-color 0.3s, color 0.3s; /* Animacja przejścia */
+nav a:hover {
+    text-decoration: underline; /* Podkreślenie na hover */
 }
 
-nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Kolor tła na hover */
-    color: #f97316; /* Zmiana koloru tekstu na hover */
-}
-
-/* Główna zawartość */
-main {
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px; /* Odstęp od stopki */
-}
-/* Stylizacja głównych sekcji */
-main {
-    margin: 20px;
-    padding: 20px;
-    background-color: #f9f9f9; /* Jasne tło dla głównych sekcji */
-    border-radius: 10px; /* Zaokrąglone rogi */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Cień dla lepszego efektu */
-}
-
-/* Stylizacja nagłówków w sekcjach */
-h2 {
-    color: #333; /* Ciemniejszy kolor dla nagłówków */
-    margin-top: 20px; /* Odstęp nad nagłówkiem */
-    border-bottom: 2px solid #ccc; /* Podkreślenie nagłówka */
-    padding-bottom: 5px; /* Odstęp pod nagłówkiem */
-}
-
-/* Stylizacja dla list w sekcjach */
-ul {
-    list-style-type: none; /* Usunięcie punktów z list */
-    padding: 0; /* Usunięcie paddingu */
-}
-
-li {
-    margin: 10px 0; /* Odstępy między elementami listy */
-    padding: 10px;
-    border: 1px solid #ddd; /* Szary obramowanie dla elementów listy */
-    border-radius: 5px; /* Zaokrąglenie rogów elementów listy */
-    background-color: #fff; /* Białe tło dla elementów listy */
-    transition: background-color 0.3s; /* Płynne przejście dla efektu najechania */
-}
-
-/* Efekt najechania na elementy listy */
-li:hover {
-    background-color: #f0f0f0; /* Jaśniejszy kolor tła przy najechaniu */
-}
-
-/* Stylizacja artykułów */
-article {
-    margin: 10px 0; /* Odstępy między artykułami */
-    padding: 15px;
-    border: 1px solid #ddd; /* Szary obramowanie dla artykułów */
-    border-radius: 5px; /* Zaokrąglenie rogów artykułów */
-    background-color: #f9f9f9; /* Jasne tło dla artykułów */
-}
-
-/* Linki w sekcjach */
-a {
-    color: #007bff; /* Kolor niebieski dla linków */
-    text-decoration: none; /* Usunięcie podkreślenia z linków */
-}
-
-a:hover {
-    text-decoration: underline; /* Podkreślenie przy najechaniu */
-}
-
-/* Stylizacja dla sekcji mini przewodników */
-#mini-guides h3 {
-    margin-top: 15px; /* Odstęp nad nagłówkiem */
-    color: #555; /* Ciemniejszy kolor dla podnagłówków */
-}
-section {
-    margin-bottom: 20px;
-}
-
-/* Stopka */
+/* Styl stopki */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #1e1e1e; /* Ciemne tło stopki */
+    color: white; /* Jasny tekst */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    padding: 10px; /* Padding stopki */
+    position: relative; /* Pozycjonowanie */
+}
+
+/* Styl głównej sekcji */
+main {
+    padding: 20px; /* Padding głównej sekcji */
+}
+
+/* Style dla modal */
+.modal {
+    display: none; /* Ukryj modal domyślnie */
+    position: fixed; /* Pozostaje na miejscu */
+    z-index: 1; /* Na wierzchu */
+    left: 0;
+    top: 0;
+    width: 100%; /* Szerokość 100% */
+    height: 100%; /* Wysokość 100% */
+    overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
+    background-color: rgba(0, 0, 0, 0.6); /* Ciemne tło z przezroczystością */
+}
+
+.modal-content {
+    background-color: #333; /* Ciemniejsze tło modalnego okna */
+    margin: 15% auto; /* 15% od góry i centrowane */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Szerokość */
+    border-radius: 10px; /* Zaokrąglenie */
+    color: #fff; /* Jasny kolor tekstu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+}
+
+/* Styl przycisku odtwarzania muzyki */
+#musicPlayer {
+    background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
+    color: white; /* Kolor tekstu */
     padding: 10px;
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Stylizacja linków */
-footer a {
-    color: #f97316;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
 }
 
 #playPauseBtn {
@@ -153,5 +97,10 @@ footer a:hover {
 }
 
 #playPauseBtn:hover {
-    background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
+    background-color: rgba(255, 255, 255, 0.1); /* Efekt najechania */
+}
+
+/* Nagłówki w sekcji głównej */
+h2 {
+    color: #ffffff; /* Jasny kolor nagłówków */
 }
