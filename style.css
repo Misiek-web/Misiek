@@ -71,3 +71,14 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
+footer {
+    position: absolute;  /* Pozycjonowanie absolutne */
+    bottom: 10px;         /* Odległość od dołu ekranu */
+    right: 10px;          /* Odległość od prawej krawędzi */
+    background-color: transparent; /* Opcjonalnie - tło stopki, może być przezroczyste */
+    color: white;         /* Kolor tekstu */
+    font-size: 16px;      /* Rozmiar tekstu */
+    margin: 0;
+    padding: 5px 10px;
+}
