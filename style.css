@@ -51,7 +51,6 @@ nav ul li a:hover {
 /* Główna zawartość */
 main {
     padding: 20px;
-    background-color: #2e2e2e;  /* Ciemniejsze tło dla zawartości */
     border-radius: 8px;
     margin-bottom: 20px; /* Odstęp od stopki */
 }
