@@ -18,20 +18,66 @@
             background-color: #121212; /* Ciemne tło */
             color: white; /* Jasły tekst */
         }
+
         #themeToggle {
             position: fixed;
             top: 10px;
             left: 10px; /* Zmiana na lewy górny róg */
-            padding: 10px;
+            width: 60px; /* Szerokość przycisku */
+            height: 30px; /* Wysokość przycisku */
             background-color: #888;
-            border: none;
-            border-radius: 5px;
+            border-radius: 15px; /* Zaokrąglenie */
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ustawienie elementów po bokach */
+            padding: 5px;
             transition: background-color 0.3s ease; /* Animacja zmiany koloru tła przycisku */
         }
-        #themeToggle:hover {
-            background-color: #666; /* Ciemniejszy kolor przy najechaniu */
+        
+        .toggle-ball {
+            width: 22px; /* Szerokość kulki */
+            height: 22px; /* Wysokość kulki */
+            background-color: white; /* Kolor kulki */
+            border-radius: 50%; /* Okrągłe tło */
+            transition: transform 0.3s ease; /* Animacja dla kulki */
+            position: relative; /* Ustawienie kontekstu pozycjonowania */
         }
+
+        .dark-mode #themeToggle {
+            background-color: #444; /* Ciemniejsze tło w trybie ciemnym */
+        }
+
+        .dark-mode .toggle-ball {
+            transform: translateX(30px); /* Przesunięcie kulki w prawo */
+        }
+
+        /* Ikony słońca i półksiężyca */
+        .sun-icon,
+        .moon-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px; /* Szerokość ikon */
+            height: 20px; /* Wysokość ikon */
+            font-size: 18px; /* Rozmiar czcionki */
+            color: #FFD700; /* Kolor słońca */
+            transition: opacity 0.3s ease; /* Animacja dla ikon */
+        }
+
+        .moon-icon {
+            color: #ccc; /* Kolor półksiężyca */
+            opacity: 0; /* Domyślnie niewidoczny */
+        }
+
+        .dark-mode .sun-icon {
+            opacity: 0; /* Ukrycie słońca w trybie ciemnym */
+        }
+
+        .dark-mode .moon-icon {
+            opacity: 1; /* Wyświetlenie półksiężyca w trybie ciemnym */
+        }
+
         #musicPlayer {
             position: fixed;
             top: 10px;
@@ -107,7 +153,11 @@
             <li><a href="https://weather.com/" target="_blank">Pogoda</a></li> <!-- Przyciski pogody -->
         </ul>
     </nav>
-    <button id="themeToggle">Tryb Ciemny</button> <!-- Przełącznik trybu -->
+    <div id="themeToggle">
+        <div class="sun-icon">☀️</div> <!-- Ikona słońca -->
+        <div class="toggle-ball"></div> <!-- Kulka przełączająca -->
+        <div class="moon-icon">🌙</div> <!-- Ikona półksiężyca -->
+    </div>
 </header>
 
 <div id="musicPlayer">
@@ -147,19 +197,16 @@
 <script>
     const contactModal = document.getElementById("contactModal");
     const closeBtn = document.querySelector(".close");
-
-    // Funkcja do otwierania modalnego okna kontaktowego
+    
     function showContact() {
         contactModal.style.display = "block"; // Wyświetlenie modalnego okna
     }
 
-    // Event listener dla kontaktu
     document.getElementById("contactLink").addEventListener("click", function(event) {
         event.preventDefault();
         showContact();
     });
 
-    // Zamykanie modalnego okna
     closeBtn.onclick = function() {
         contactModal.style.display = "none"; // Ukrycie modalnego okna
     }
@@ -170,16 +217,30 @@
         }
     }
 
+    // Skrypt do przełączania trybu jasnego/ciemnego
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    themeToggle.addEventListener("click", function() {
+        body.classList.toggle("dark-mode");
+        body.classList.toggle("light-mode");
+        const isDarkMode = body.classList.contains("dark-mode");
+        
+        // Zmiana tekstu przycisku
+        const toggleBall = document.querySelector(".toggle-ball");
+        toggleBall.style.transform = isDarkMode ? "translateX(30px)" : "translateX(0)";
+    });
+
+    // Odtwarzacz muzyki
     const audio = document.getElementById("audio");
     const playPauseBtn = document.getElementById("playPauseBtn");
     const songTitle = document.getElementById("songTitle");
-    const playIcon = document.querySelector(".play-icon");
-    const pauseIcon = document.querySelector(".pause-icon");
-
-    // Ustaw tytuł utworu
-    songTitle.textContent = " - Tytuł utworu"; // Zmień tytuł utworu
+    songTitle.textContent = " - Tytuł utworu"; // Ustaw tytuł utworu
 
     playPauseBtn.addEventListener("click", function() {
+        const playIcon = playPauseBtn.querySelector(".play-icon");
+        const pauseIcon = playPauseBtn.querySelector(".pause-icon");
+        
         if (audio.paused) {
             audio.play();
             playIcon.style.display = "none"; // Ukrycie ikony Play
@@ -190,15 +251,6 @@
             pauseIcon.style.display = "none"; // Ukrycie ikony Pause
         }
     });
-
-    // Przełącznik trybu ciemnego/jasnego
-    const themeToggle = document.getElementById("themeToggle");
-    themeToggle.addEventListener("click", function() {
-        document.body.classList.toggle("dark-mode"); // Przełącz tryb
-        document.body.classList.toggle("light-mode");
-        themeToggle.textContent = document.body.classList.contains("dark-mode") ? "Tryb Jasny" : "Tryb Ciemny"; // Zmiana tekstu przycisku
-    });
 </script>
-
 </body>
 </html>
