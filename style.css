@@ -1,149 +1,78 @@
-/* Ogólne ustawienia */
+/* Ciemny motyw */
 body {
-    background-color: #121212; /* Ciemne tło */
-    color: #ffffff; /* Jasny tekst */
-    font-family: Arial, sans-serif; /* Czcionka */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #1a1a1a;  /* Ciemne tło */
+    color: #f1f1f1;  /* Jasny tekst */
+    min-height: 100vh;
 }
 
-/* Styl nagłówka */
+/* Nagłówek z gradientem */
 header {
-    background: linear-gradient(to right, #f97316, #f43f5e); /* Gradient pomarańczowy-czerwony */
-    padding: 20px 0;
-    text-align: center; /* Wyśrodkowanie tekstu */
+    background: linear-gradient(to right, #f97316, #f43f5e);
+    padding: 20px;
+    text-align: center;
     color: white;
-}
-
-header h1 {
-    margin: 0;
-    color: #ffffff; /* Jasny kolor tekstu */
-    font-size: 36px;
-    letter-spacing: 2px;
 }
 
 /* Nawigacja */
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
     padding: 0;
-    margin: 10px 0;
 }
 
 nav ul li {
-    display: inline-block;
-    margin: 0 15px;
+    display: inline;
+    margin-right: 15px;
 }
 
-nav a {
-    color: #ffffff; /* Kolor linków */
+nav ul li a.active {
+    background-color: rgba(0, 255, 255, 0.5); /* Aqua z 50% przezroczystością */
+    color: black; /* Kolor tekstu dla aktywnej zakładki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    padding: 5px 10px; /* Wewnętrzny odstęp */
+}
+
+nav ul li a {
+    color: white;
     text-decoration: none;
-    transition: color 0.3s;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s; /* Animacja przejścia */
 }
 
-nav a:hover {
-    color: #dddddd; /* Zmiana koloru na hover */
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Kolor tła na hover */
+    color: #f97316; /* Zmiana koloru tekstu na hover */
 }
 
-/* Styl sekcji głównej */
+/* Główna zawartość */
 main {
     padding: 20px;
-    background-color: #181818; /* Ciemniejsze tło dla głównej sekcji */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Odstęp od stopki */
 }
 
-main h2 {
-    color: #ffffff; /* Jasny kolor nagłówków sekcji */
-    margin-bottom: 10px;
-}
-
-main p, main ul {
-    color: #cccccc; /* Jasnoszary kolor dla tekstu */
-}
-
-/* Styl dla sekcji z artykułami */
-article h3 {
-    color: #ffffff; /* Jasny kolor nagłówka artykułu */
-    margin-top: 20px;
-}
-
-article p {
-    color: #cccccc; /* Jasnoszary tekst artykułów */
-}
-
-/* Linki wewnątrz artykułów */
-article a {
-    color: #00bfff; /* Jasny niebieski dla linków */
-    text-decoration: none;
-}
-
-article a:hover {
-    text-decoration: underline;
-}
-
-/* Styl odtwarzacza muzyki */
-#musicPlayer {
-    background-color: rgba(0, 0, 0, 0.7); /* Ciemne, lekko przezroczyste tło */
-    color: white; /* Kolor tekstu */
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień */
-    position: fixed; /* Przyklejenie odtwarzacza do prawego górnego rogu */
-    top: 20px; /* Odstęp od góry */
-    right: 20px; /* Odstęp od prawej */
-    z-index: 1000; /* Na wierzchu */
-}
-
-/* Styl przycisku play/pause */
-#playPauseBtn {
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#playPauseBtn:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Efekt hover */
-}
-
-/* Modal */
-.modal {
-    display: none; /* Ukrycie modala domyślnie */
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Półprzezroczyste tło */
-    overflow: auto; /* Przewijanie, jeśli potrzebne */
-}
-
-.modal-content {
-    background-color: #333;
-    color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+section {
+    margin-bottom: 20px;
 }
 
 /* Stopka */
 footer {
-    background-color: #1e1e1e;
+    background-color: #333;
     color: white;
+    padding: 10px;
     text-align: center;
-    padding: 10px 0;
     position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
+/* Stylizacja linków */
 footer a {
-    color: #ffffff;
+    color: #f97316;
     text-decoration: none;
 }
 
@@ -151,26 +80,18 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Style dla list */
-ul {
-    padding-left: 20px;
+#playPauseBtn {
+    background-color: transparent; /* Bez tła */
+    border: none; /* Bez ramki */
+    border-radius: 50%; /* Okrągły przycisk */
+    width: 40px; /* Szerokość przycisku */
+    height: 40px; /* Wysokość przycisku */
+    display: flex; /* Użycie flexbox */
+    align-items: center; /* Wyśrodkowanie */
+    justify-content: center; /* Wyśrodkowanie */
+    transition: background-color 0.3s; /* Płynne przejście */
 }
 
-ul li {
-    margin-bottom: 10px;
-}
-
-/* Dodatkowe style dla artykułów */
-article {
-    margin-bottom: 20px;
-}
-
-/* Linki w głównej sekcji */
-main a {
-    color: #00bfff;
-    text-decoration: none;
-}
-
-main a:hover {
-    text-decoration: underline;
+#playPauseBtn:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
 }
