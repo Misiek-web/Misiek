@@ -23,9 +23,9 @@
     <section id="files">
         <h2>Pliki do pobrania</h2>
         <ul>
-            <li><a href="path/to/yourfile.docx" download>Pobierz plik Word</a></li>
-            <li><a href="path/to/yourfile.pdf" download>Pobierz plik PDF</a></li>
-            <li><a href="path/to/yourfile.txt" download>Pobierz plik TXT</a></li>
+            <li><a href="files/dokument.docx" download>Pobierz plik Word</a></li>
+            <li><a href="files/plik.pdf" download>Pobierz plik PDF</a></li>
+            <li><a href="files/dokument.txt" download>Pobierz plik TXT</a></li>
         </ul>
     </section>
 </main>
@@ -40,6 +40,7 @@
 
 <footer>
     <p>&copy; 2024 Misiek Industries</p>
+    <p><a href="#privacy">Polityka Prywatności</a> | <a href="#terms">Warunki Użytkowania</a> | <a href="#cookies">Pliki Cookies</a></p>
 </footer>
 
 <script>
@@ -81,16 +82,18 @@
         height: 100%; /* Wysokość 100% */
         overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
         background-color: rgb(0,0,0); /* Czarny z przezroczystością */
-        background-color: rgba(0,0,0,0.4); /* Ciemne tło */
+        background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
     }
 
     .modal-content {
-        background-color: #fefefe;
+        background-color: #333; /* Ciemniejsze tło modalnego okna */
         margin: 15% auto; /* 15% od góry i centrowane */
         padding: 20px;
         border: 1px solid #888;
         width: 80%; /* Szerokość */
         border-radius: 10px; /* Zaokrąglenie */
+        color: #fff; /* Jasny kolor tekstu */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
     }
 
     .close {
@@ -102,7 +105,7 @@
 
     .close:hover,
     .close:focus {
-        color: black; /* Zmiana koloru przy najechaniu */
+        color: white; /* Zmiana koloru przy najechaniu */
         text-decoration: none;
         cursor: pointer;
     }
