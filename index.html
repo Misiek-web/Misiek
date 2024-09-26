@@ -21,7 +21,7 @@
         #themeToggle {
             position: fixed;
             top: 10px;
-            left: 10px; /* Zmieniono z right na left */
+            left: 10px; /* Zmienione na lewy górny róg */
             padding: 10px;
             background-color: #888;
             border: none;
@@ -47,44 +47,87 @@
         }
 
         #playPauseBtn {
-            background-color: white; /* Kolor przycisku */
+            background-color: transparent; /* Przezroczyste tło przycisku */
             border: none;
-            border-radius: 50%; /* Okrągły przycisk */
-            width: 10px; /* Szerokość przycisku */
-            height: 10px; /* Wysokość przycisku */
             cursor: pointer; /* Kursor zmienia się na wskazujący */
             display: flex; /* Flexbox do centrowania ikony */
             align-items: center; /* Wyśrodkowanie pionowe */
             justify-content: center; /* Wyśrodkowanie poziome */
+            width: 50px; /* Szerokość przycisku */
+            height: 50px; /* Wysokość przycisku */
+            border-radius: 50%; /* Okrągły przycisk */
+            transition: background-color 0.3s ease; /* Animacja zmiany koloru tła przycisku */
         }
 
         #playPauseBtn:hover {
-            background-color: rgba(200, 200, 200, 0.5); /* Ciemniejszy kolor przy najechaniu */
+            background-color: rgba(255, 255, 255, 0.2); /* Jasne tło przy najechaniu */
         }
 
         /* Ikony odtwarzania/pauzy */
         .icon {
-            width: 10px;
-            height: 10px;
-            display: block;
+            display: none; /* Ukryj domyślnie */
         }
 
         .play {
-            border-left: 10px solid transparent; /* Z lewej strony */
-            border-right: 10px solid transparent; /* Z prawej strony */
-            border-bottom: 10px solid black; /* Czarne trójkąty */
+            display: block; /* Wyświetl ikonę odtwarzania */
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent; /* Z lewej strony */
+            border-right: 15px solid transparent; /* Z prawej strony */
+            border-bottom: 30px solid white; /* Biały trójkąt */
         }
 
         .pause {
             display: flex; /* Flexbox dla pauzy */
             justify-content: space-between; /* Wyrównanie */
-            width: 100%; /* Pełna szerokość */
+            width: 20px; /* Szerokość */
+            height: 30px; /* Wysokość */
         }
 
         .pause div {
-            width: 10px; /* Szerokość prostokątów */
-            height: 20px; /* Wysokość prostokątów */
-            background-color: black; /* Czarne prostokąty */
+            width: 5px; /* Szerokość prostokątów */
+            height: 30px; /* Wysokość prostokątów */
+            background-color: white; /* Białe prostokąty */
+            border-radius: 2px; /* Zaokrąglenie rogów prostokątów */
+        }
+
+        /* Dodanie stylów dla modal */
+        .modal {
+            display: none; /* Ukryj modal domyślnie */
+            position: fixed; /* Pozostaje na miejscu */
+            z-index: 1; /* Na wierzchu */
+            left: 0;
+            top: 0;
+            width: 100%; /* Szerokość 100% */
+            height: 100%; /* Wysokość 100% */
+            overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
+            background-color: rgb(0,0,0); /* Czarny z przezrocznością */
+            background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
+        }
+
+        .modal-content {
+            background-color: #333; /* Ciemniejsze tło modalnego okna */
+            margin: 15% auto; /* 15% od góry i centrowane */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Szerokość */
+            border-radius: 10px; /* Zaokrąglenie */
+            color: #fff; /* Jasny kolor tekstu */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+        }
+
+        .close {
+            color: #aaa;
+            float: right; /* Prawe górne rogi */
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white; /* Zmiana koloru przy najechaniu */
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -158,7 +201,7 @@
 
     window.onclick = function(event) {
         if (event.target == contactModal) {
-            contactModal.style.display = "none"; // Ukrycie modalnego okna po kliknięciu w tło
+            contactModal.style.display = "none"; // Ukrycie modalnego okna po kliknięciu poza nim
         }
     }
 
@@ -168,6 +211,8 @@
 
     // Ustaw tytuł utworu
     songTitle.textContent = " - Tytuł utworu"; // Zmień tytuł utworu
+
+    playPauseBtn.innerHTML = '<span class="icon play"></span>'; // Ustawienie domyślnej ikony odtwarzania
 
     playPauseBtn.addEventListener("click", function() {
         if (audio.paused) {
@@ -187,47 +232,5 @@
         themeToggle.textContent = document.body.classList.contains("dark-mode") ? "Tryb Jasny" : "Tryb Ciemny"; // Zmiana tekstu przycisku
     });
 </script>
-
-<style>
-    /* Dodanie stylów dla modal */
-    .modal {
-        display: none; /* Ukryj modal domyślnie */
-        position: fixed; /* Pozostaje na miejscu */
-        z-index: 1; /* Na wierzchu */
-        left: 0;
-        top: 0;
-        width: 100%; /* Szerokość 100% */
-        height: 100%; /* Wysokość 100% */
-        overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
-        background-color: rgb(0,0,0); /* Czarny z przezrocznością */
-        background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
-    }
-
-    .modal-content {
-        background-color: #333; /* Ciemniejsze tło modalnego okna */
-        margin: 15% auto; /* 15% od góry i centrowane */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Szerokość */
-        border-radius: 10px; /* Zaokrąglenie */
-        color: #fff; /* Jasny kolor tekstu */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    .close {
-        color: #aaa;
-        float: right; /* Prawe górne rogi */
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: white; /* Zmiana koloru przy najechaniu */
-        text-decoration: none;
-        cursor: pointer;
-    }
-</style>
-
 </body>
 </html>
