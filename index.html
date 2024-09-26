@@ -14,7 +14,9 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Info</a></li>
-            <li><a href="#privacy">Polityka Prywatności</a></li>
+            <li><a href="#" id="privacyLink">Polityka Prywatności</a></li>
+            <li><a href="#" id="termsLink">Warunki Użytkowania</a></li>
+            <li><a href="#" id="cookiesLink">Pliki Cookies</a></li>
         </ul>
     </nav>
 </header>
@@ -31,26 +33,110 @@
     </section>
 </main>
 
-<!-- Sekcje dotyczące polityki prywatności i inne przeniesione na dół -->
-<section id="privacy">
-    <h2>Polityka Prywatności</h2>
-    <p>Polityka prywatności opisuje, jakie dane zbieramy, do czego są wykorzystywane i jak są chronione.</p>
-</section>
-
-<section id="terms">
-    <h2>Warunki Użytkowania</h2>
-    <p>Warunki użytkowania określają zasady korzystania z serwisu, w tym ograniczenia odpowiedzialności.</p>
-</section>
-
-<section id="cookies">
-    <h2>Pliki Cookies</h2>
-    <p>Informacje o tym, jakie pliki cookies są wykorzystywane, oraz w jaki sposób użytkownicy mogą je kontrolować.</p>
-</section>
+<!-- Wyskakujące okna -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modalText"></div>
+    </div>
+</div>
 
 <footer>
     <p>&copy; 2024 Misiek Industries</p>
     <p><a href="#privacy">Polityka Prywatności</a> | <a href="#terms">Warunki Użytkowania</a> | <a href="#cookies">Pliki Cookies</a></p>
 </footer>
+
+<script>
+    const modal = document.getElementById("modal");
+    const modalText = document.getElementById("modalText");
+    const closeBtn = document.querySelector(".close");
+
+    // Funkcje do otwierania okienka
+    function showPrivacy() {
+        modalText.innerHTML = `<h2>Polityka Prywatności</h2>
+        <p>Niniejszy dokument polityki prywatności (dalej: Polityka) dostarcza użytkownikom i klientom, którymi w szczególności są uczniowie, rodzice oraz inne osoby korzystające z eduMisiek informacji na temat przetwarzania danych osobowych przez Misiek Industries z siedzibą w Białej Rawskiej.</p>
+        <p>Misiek Industries przywiązuje szczególną uwagę do poszanowania prywatności osób, których dane osobowe oraz inne informacje przetwarza w związku z korzystaniem przez te osoby z usług lub produktów oferowanych przez Misiek Industries, w tym świadczonych drogą elektroniczną.</p>
+        <p>Misiek Industries ceni prywatność wszystkich osób i chce dostarczyć im szczegółowych i zrozumiałych informacji na temat celów przetwarzania pozyskiwanych od tych osób danych osobowych lub innych dostarczanych informacji, zasad ich wykorzystywania i stosowanych środków ochrony w związku z korzystaniem przez te osoby z oferowanych im usług i produktów.</p>
+        <p>Jeżeli Misiek Industries zbiera dane osobowe i decyduje o celach i środkach ich przetwarzania, jest ich administratorem danych. Administrator danych działa jako spółka kapitałowa pod firmą Misiek Industries z siedzibą w Białej Rawskiej.</p>`;
+        modal.style.display = "block";
+    }
+
+    function showTerms() {
+        modalText.innerHTML = `<h2>Warunki Użytkowania</h2>
+        <p>Warunki użytkowania określają zasady korzystania z serwisu Misiek Industries, w tym ograniczenia odpowiedzialności.</p>`;
+        modal.style.display = "block";
+    }
+
+    function showCookies() {
+        modalText.innerHTML = `<h2>Pliki Cookies</h2>
+        <p>Informacje o tym, jakie pliki cookies są wykorzystywane, oraz w jaki sposób użytkownicy mogą je kontrolować.</p>`;
+        modal.style.display = "block";
+    }
+
+    document.getElementById("privacyLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        showPrivacy();
+    });
+
+    document.getElementById("termsLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        showTerms();
+    });
+
+    document.getElementById("cookiesLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        showCookies();
+    });
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<style>
+    /* Dodanie stylów dla modal */
+    .modal {
+        display: none; /* Ukryj modal domyślnie */
+        position: fixed; /* Pozostaje na miejscu */
+        z-index: 1; /* Na wierzchu */
+        left: 0;
+        top: 0;
+        width: 100%; /* Szerokość 100% */
+        height: 100%; /* Wysokość 100% */
+        overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
+        background-color: rgb(0,0,0); /* Czarny z przezroczystością */
+        background-color: rgba(0,0,0,0.4); /* Ciemne tło */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% od góry i centrowane */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Szerokość */
+        border-radius: 10px; /* Zaokrąglenie */
+    }
+
+    .close {
+        color: #aaa;
+        float: right; /* Prawe górne rogi */
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black; /* Zmiana koloru przy najechaniu */
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
 
 </body>
 </html>
