@@ -6,8 +6,143 @@
     <title>Misiek.pl</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease; /* Animacja dla zmiany tła i koloru tekstu */
+        }
+        .light-mode {
+            background-color: white; /* Jasne tło */
+            color: black; /* Ciemny tekst */
+        }
+        .dark-mode {
+            background-color: #121212; /* Ciemne tło */
+            color: white; /* Jasny tekst */
+        }
+        #themeToggle {
+            position: fixed;
+            top: 10px;
+            left: 10px; /* Zmienione na lewy górny róg */
+            width: 50px;
+            height: 25px;
+            background-color: #888;
+            border-radius: 25px; /* Okrągły przycisk */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+            transition: background-color 0.3s ease; /* Animacja zmiany koloru tła przycisku */
+        }
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%; /* Okrągły przycisk */
+            background-color: white;
+            transition: transform 0.3s ease; /* Animacja przesuwania */
+        }
+        #themeToggle.dark .circle {
+            transform: translateX(25px); /* Przesunięcie przycisku w prawo */
+        }
+
+        /* Styl odtwarzacza muzyki */
+        #musicPlayer {
+            position: fixed; 
+            top: 10px; 
+            right: 10px; 
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
+            color: white; /* Kolor tekstu */
+            padding: 10px;
+            border-radius: 10px; /* Zaokrąglenie rogów */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+        }
+
+        #playPauseBtn {
+            background-color: transparent; /* Przezroczyste tło przycisku */
+            border: none;
+            cursor: pointer; /* Kursor zmienia się na wskazujący */
+            display: flex; /* Flexbox do centrowania ikony */
+            align-items: center; /* Wyśrodkowanie pionowe */
+            justify-content: center; /* Wyśrodkowanie poziome */
+            width: 50px; /* Szerokość przycisku */
+            height: 50px; /* Wysokość przycisku */
+            border-radius: 50%; /* Okrągły przycisk */
+            transition: background-color 0.3s ease; /* Animacja zmiany koloru tła przycisku */
+        }
+
+        #playPauseBtn:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Jasne tło przy najechaniu */
+        }
+
+        /* Ikony odtwarzania/pauzy */
+        .icon {
+            display: none; /* Ukryj domyślnie */
+        }
+
+        .play {
+            display: block; /* Wyświetl ikonę odtwarzania */
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent; /* Z lewej strony */
+            border-right: 15px solid transparent; /* Z prawej strony */
+            border-bottom: 30px solid white; /* Biały trójkąt */
+        }
+
+        .pause {
+            display: flex; /* Flexbox dla pauzy */
+            justify-content: space-between; /* Wyrównanie */
+            width: 20px; /* Szerokość */
+            height: 30px; /* Wysokość */
+        }
+
+        .pause div {
+            width: 5px; /* Szerokość prostokątów */
+            height: 30px; /* Wysokość prostokątów */
+            background-color: white; /* Białe prostokąty */
+            border-radius: 2px; /* Zaokrąglenie rogów prostokątów */
+        }
+
+        /* Dodanie stylów dla modal */
+        .modal {
+            display: none; /* Ukryj modal domyślnie */
+            position: fixed; /* Pozostaje na miejscu */
+            z-index: 1; /* Na wierzchu */
+            left: 0;
+            top: 0;
+            width: 100%; /* Szerokość 100% */
+            height: 100%; /* Wysokość 100% */
+            overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
+            background-color: rgb(0,0,0); /* Czarny z przezrocznością */
+            background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
+        }
+
+        .modal-content {
+            background-color: #333; /* Ciemniejsze tło modalnego okna */
+            margin: 15% auto; /* 15% od góry i centrowane */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Szerokość */
+            border-radius: 10px; /* Zaokrąglenie */
+            color: #fff; /* Jasny kolor tekstu */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+        }
+
+        .close {
+            color: #aaa;
+            float: right; /* Prawe górne rogi */
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white; /* Zmiana koloru przy najechaniu */
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body>
+<body class="light-mode"> <!-- Domyślny tryb jasny -->
 
 <header>
     <h1>Misiek Industries</h1>
@@ -20,14 +155,20 @@
     </nav>
 </header>
 
-<div id="musicPlayer" style="position: fixed; top: 10px; right: 10px; z-index: 10;">
-    <button id="playPauseBtn" style="background: none; border: none; padding: 0; cursor: pointer;">
+<div id="themeToggle">
+    <div class="circle"></div>
+    <div class="icon sun">🌞</div>
+    <div class="icon moon">🌜</div>
+</div>
+
+<div id="musicPlayer">
+    <button id="playPauseBtn">
         <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
             <circle cx="15" cy="15" r="15" fill="white" />
             <polygon points="12,10 12,20 20,15" fill="black" />
         </svg>
     </button>
-    <span id="songTitle"> - Tytuł utworu</span>
+    <span id="songTitle"> - Travis Scott</span>
 </div>
 
 <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
@@ -81,9 +222,7 @@
             contactModal.style.display = "none"; // Ukrycie modalnego okna po kliknięciu w tło
         }
     }
-</script>
 
-<script>
     const audio = document.getElementById("audio");
     const playPauseBtn = document.getElementById("playPauseBtn");
     const songTitle = document.getElementById("songTitle");
@@ -111,72 +250,15 @@
             `;
         }
     });
+
+    // Przełącznik trybu ciemnego/jasnego
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode"); // Przełącz tryb
+        document.body.classList.toggle("light-mode");
+        themeToggle.classList.toggle("dark");
+    });
 </script>
-
-<style>
-    /* Dodanie stylów dla modal */
-    .modal {
-        display: none; /* Ukryj modal domyślnie */
-        position: fixed; /* Pozostaje na miejscu */
-        z-index: 1; /* Na wierzchu */
-        left: 0;
-        top: 0;
-        width: 100%; /* Szerokość 100% */
-        height: 100%; /* Wysokość 100% */
-        overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
-        background-color: rgb(0,0,0); /* Czarny z przezroczystością */
-        background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
-    }
-
-    .modal-content {
-        background-color: #333; /* Ciemniejsze tło modalnego okna */
-        margin: 15% auto; /* 15% od góry i centrowane */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Szerokość */
-        border-radius: 10px; /* Zaokrąglenie */
-        color: #fff; /* Jasny kolor tekstu */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    .close {
-        color: #aaa;
-        float: right; /* Prawe górne rogi */
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: white; /* Zmiana koloru przy najechaniu */
-        text-decoration: none;
-        cursor: pointer;
-    }
-    
-    #musicPlayer {
-        background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
-        color: white; /* Kolor tekstu */
-        padding: 10px;
-        border-radius: 10px; /* Zaokrąglenie rogów */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    #playPauseBtn {
-        background-color: transparent; /* Bez tła */
-        border: none; /* Bez ramki */
-        border-radius: 50%; /* Okrągły przycisk */
-        width: 40px; /* Szerokość przycisku */
-        height: 40px; /* Wysokość przycisku */
-        display: flex; /* Użycie flexbox */
-        align-items: center; /* Wyśrodkowanie */
-        justify-content: center; /* Wyśrodkowanie */
-        transition: background-color 0.3s; /* Płynne przejście */
-    }
-
-    #playPauseBtn:hover {
-        background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
-    }
-</style>
 
 </body>
 </html>
