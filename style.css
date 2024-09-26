@@ -80,3 +80,19 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+#playPauseBtn {
+    background-color: transparent; /* Bez tła */
+    border: none; /* Bez ramki */
+    border-radius: 50%; /* Okrągły przycisk */
+    width: 40px; /* Szerokość przycisku */
+    height: 40px; /* Wysokość przycisku */
+    display: flex; /* Użycie flexbox */
+    align-items: center; /* Wyśrodkowanie */
+    justify-content: center; /* Wyśrodkowanie */
+    transition: background-color 0.3s; /* Płynne przejście */
+}
+
+#playPauseBtn:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
+}
