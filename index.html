@@ -32,6 +32,60 @@
         #themeToggle:hover {
             background-color: #666; /* Ciemniejszy kolor przy najechaniu */
         }
+
+        /* Styl odtwarzacza muzyki */
+        #musicPlayer {
+            position: fixed; 
+            top: 10px; 
+            right: 10px; 
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
+            color: white; /* Kolor tekstu */
+            padding: 10px;
+            border-radius: 10px; /* Zaokrąglenie rogów */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
+        }
+
+        #playPauseBtn {
+            background-color: white; /* Kolor przycisku */
+            border: none;
+            border-radius: 50%; /* Okrągły przycisk */
+            width: 40px; /* Szerokość przycisku */
+            height: 40px; /* Wysokość przycisku */
+            cursor: pointer; /* Kursor zmienia się na wskazujący */
+            display: flex; /* Flexbox do centrowania ikony */
+            align-items: center; /* Wyśrodkowanie pionowe */
+            justify-content: center; /* Wyśrodkowanie poziome */
+        }
+
+        #playPauseBtn:hover {
+            background-color: rgba(200, 200, 200, 0.5); /* Ciemniejszy kolor przy najechaniu */
+        }
+
+        /* Ikony odtwarzania/pauzy */
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+
+        .play {
+            border-left: 10px solid transparent; /* Z lewej strony */
+            border-right: 10px solid transparent; /* Z prawej strony */
+            border-bottom: 20px solid black; /* Czarne trójkąty */
+        }
+
+        .pause {
+            display: flex; /* Flexbox dla pauzy */
+            justify-content: space-between; /* Wyrównanie */
+            width: 100%; /* Pełna szerokość */
+        }
+
+        .pause div {
+            width: 10px; /* Szerokość prostokątów */
+            height: 20px; /* Wysokość prostokątów */
+            background-color: black; /* Czarne prostokąty */
+        }
     </style>
 </head>
 <body class="light-mode"> <!-- Domyślny tryb jasny -->
@@ -49,8 +103,10 @@
     <button id="themeToggle">Tryb Ciemny</button> <!-- Przełącznik trybu -->
 </header>
 
-<div id="musicPlayer" style="position: fixed; top: 10px; right: 10px; z-index: 10;">
-    <button id="playPauseBtn">Play</button>
+<div id="musicPlayer">
+    <button id="playPauseBtn">
+        <span class="icon play"></span> <!-- Ikona odtwarzania -->
+    </button>
     <span id="songTitle"> - Tytuł utworu</span>
 </div>
 
@@ -116,10 +172,10 @@
     playPauseBtn.addEventListener("click", function() {
         if (audio.paused) {
             audio.play();
-            playPauseBtn.textContent = "Pause"; // Zmiana tekstu przycisku na "Pause"
+            playPauseBtn.innerHTML = '<span class="icon pause"><div></div><div></div></span>'; // Zmiana na ikonę pauzy
         } else {
             audio.pause();
-            playPauseBtn.textContent = "Play"; // Zmiana tekstu przycisku na "Play"
+            playPauseBtn.innerHTML = '<span class="icon play"></span>'; // Zmiana na ikonę odtwarzania
         }
     });
 
@@ -170,26 +226,6 @@
         color: white; /* Zmiana koloru przy najechaniu */
         text-decoration: none;
         cursor: pointer;
-    }
-    
-    #musicPlayer {
-        background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
-        color: white; /* Kolor tekstu */
-        padding: 10px;
-        border-radius: 10px; /* Zaokrąglenie rogów */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    #playPauseBtn {
-        background-color: aqua; /* Kolor przycisku */
-        border: none;
-        border-radius: 5px; /* Zaokrąglenie rogów */
-        padding: 5px 10px;
-        cursor: pointer; /* Kursor zmienia się na wskazujący */
-    }
-
-    #playPauseBtn:hover {
-        background-color: #00cccc; /* Ciemniejszy kolor przy najechaniu */
     }
 </style>
 
