@@ -49,7 +49,7 @@
         }
 
         .dark-mode .toggle-ball {
-            transform: translateX(30px); /* Przesunięcie kulki w prawo */
+            transform: translateX(20px); /* Przesunięcie kulki w prawo */
         }
 
         /* Ikony słońca i półksiężyca */
@@ -135,9 +135,43 @@
             padding: 20px;
             border-radius: 10px; /* Zaokrąglenie rogów */
             transition: background-color 0.5s ease; /* Animacja zmiany tła */
+            border: none; /* Usunięcie obramowania */
         }
         .dark-mode #home {
             background-color: rgba(30, 30, 30, 0.8); /* Ciemne tło w trybie ciemnym */
+        }
+
+        /* Styl modalnego okna */
+        .modal {
+            display: none; /* Ukryte domyślnie */
+            position: fixed;
+            z-index: 1000; /* Na wierzchu */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* W przypadku przewijania */
+            background-color: rgb(0,0,0); /* Czarny tło */
+            background-color: rgba(0,0,0,0.4); /* Ciemne przezroczyste tło */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% od góry i wyśrodkowane */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Szerokość */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -154,9 +188,9 @@
         </ul>
     </nav>
     <div id="themeToggle">
-        <div class="sun-icon">☀️</div> <!-- Ikona słońca -->
-        <div class="toggle-ball"></div> <!-- Kulka przełączająca -->
         <div class="moon-icon">🌙</div> <!-- Ikona półksiężyca -->
+        <div class="toggle-ball"></div> <!-- Kulka przełączająca -->
+        <div class="sun-icon">☀️</div> <!-- Ikona słońca -->
     </div>
 </header>
 
@@ -168,31 +202,28 @@
     <span id="songTitle"> - Tytuł utworu</span>
 </div>
 
-<audio id="audio" src="muzyka.mp3" preload="auto"></audio>
+<audio id="audio" src="twoja_piosenka.mp3"></audio> <!-- Podmiana na odpowiedni plik -->
 
 <main>
     <section id="home">
         <h2>Pozdrawiam</h2>
-        <p>Najlepsza strona na świecie, pociłem się przy niej i nocki zawalałem.</p>
+        <p>Opis tutaj.</p>
+        <p class="hidden-email">Mój email: example@example.com</p> <!-- Dodanie klasy do ukrycia -->
     </section>
 </main>
 
-<!-- Wyskakujące okno kontaktowe -->
+<footer>
+    <p>&copy; 2024 Misiek Industries</p>
+</footer>
+
+<!-- Modal dla kontaktu -->
 <div id="contactModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
+        <h2>Kontakt</h2>
+        <p>W celu kontaktu proszę użyć formularza kontaktowego.</p>
     </div>
 </div>
-
-<footer style="position: fixed; bottom: 0; width: 100%; background-color: #222; color: white; text-align: center; padding: 10px;">
-    <p>&copy; 2024 Misiek Industries</p>
-    <p>
-        <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
-        <a href="#terms" style="color: #ddd;">Warunki Użytkowania</a> |
-        <a href="#cookies" style="color: #ddd;">Pliki Cookies</a>
-    </p>
-</footer>
 
 <script>
     const contactModal = document.getElementById("contactModal");
@@ -228,7 +259,7 @@
         
         // Zmiana tekstu przycisku
         const toggleBall = document.querySelector(".toggle-ball");
-        toggleBall.style.transform = isDarkMode ? "translateX(30px)" : "translateX(0)";
+        toggleBall.style.transform = isDarkMode ? "translateX(20px)" : "translateX(0)"; // Zmiana przesunięcia kulki
     });
 
     // Odtwarzacz muzyki
@@ -251,6 +282,9 @@
             pauseIcon.style.display = "none"; // Ukrycie ikony Pause
         }
     });
+
+    // Ukrycie emailu
+    document.querySelector(".hidden-email").style.display = "none"; // Domyślnie ukryty email
 </script>
 </body>
 </html>
