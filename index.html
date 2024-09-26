@@ -16,18 +16,14 @@
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="pliki.html">Pliki</a></li>
             <li><a href="#" id="contactLink">Kontakt</a></li>
+            <li><a href="https://weather.com/" target="_blank">Pogoda</a></li> <!-- Dodany przycisk do pogody -->
         </ul>
     </nav>
 </header>
 
 <div id="musicPlayer" style="position: fixed; top: 10px; right: 10px; z-index: 10;">
-    <button id="playPauseBtn" style="background: none; border: none; padding: 0; cursor: pointer;">
-        <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-            <circle cx="15" cy="15" r="15" fill="white" />
-            <polygon points="12,10 12,20 20,15" fill="black" />
-        </svg>
-    </button>
-    <span id="songTitle"> - Travis Scott</span>
+    <button id="playPauseBtn">Play</button>
+    <span id="songTitle"> - Tytuł utworu</span>
 </div>
 
 <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
@@ -36,6 +32,15 @@
     <section id="home">
         <h2>Pozdrawiam</h2>
         <p>Najlepsza strona na świecie, pociłem się przy niej i nocki zawalałem.</p>
+    </section>
+
+    <section id="weather">
+        <h2>Pogoda</h2>
+        <div id="weatherWidget" style="background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <h3 id="location">Twoja lokalizacja</h3>
+            <p id="temperature">Temperatura: --°C</p>
+            <p id="condition">Stan: --</p>
+        </div>
     </section>
 </main>
 
@@ -81,9 +86,25 @@
             contactModal.style.display = "none"; // Ukrycie modalnego okna po kliknięciu w tło
         }
     }
-</script>
 
-<script>
+    async function fetchWeather() {
+        const apiKey = 'YOUR_API_KEY'; // Zastąp swoim kluczem API
+        const location = 'Warsaw'; // Zmień na swoją lokalizację
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`);
+        const data = await response.json();
+
+        if (response.ok) {
+            document.getElementById('location').textContent = data.name;
+            document.getElementById('temperature').textContent = `Temperatura: ${data.main.temp}°C`;
+            document.getElementById('condition').textContent = `Stan: ${data.weather[0].description}`;
+        } else {
+            console.error('Błąd pobierania pogody:', data.message);
+        }
+    }
+
+    // Wywołaj funkcję na załadowanie strony
+    window.onload = fetchWeather;
+
     const audio = document.getElementById("audio");
     const playPauseBtn = document.getElementById("playPauseBtn");
     const songTitle = document.getElementById("songTitle");
@@ -94,21 +115,10 @@
     playPauseBtn.addEventListener("click", function() {
         if (audio.paused) {
             audio.play();
-            playPauseBtn.innerHTML = `
-                <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <circle cx="15" cy="15" r="15" fill="white" />
-                    <rect x="10" y="10" width="4" height="10" fill="black" />
-                    <rect x="16" y="10" width="4" height="10" fill="black" />
-                </svg>
-            `;
+            playPauseBtn.textContent = "Pause"; // Zmiana tekstu przycisku na "Pause"
         } else {
             audio.pause();
-            playPauseBtn.innerHTML = `
-                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <circle cx="15" cy="15" r="15" fill="white" />
-                    <polygon points="12,10 12,20 20,15" fill="black" />
-                </svg>
-            `;
+            playPauseBtn.textContent = "Play"; // Zmiana tekstu przycisku na "Play"
         }
     });
 </script>
@@ -124,59 +134,3 @@
         width: 100%; /* Szerokość 100% */
         height: 100%; /* Wysokość 100% */
         overflow: auto; /* Włącz przewijanie, jeśli potrzebne */
-        background-color: rgb(0,0,0); /* Czarny z przezroczystością */
-        background-color: rgba(0,0,0,0.6); /* Ciemne tło z większą przezroczystością */
-    }
-
-    .modal-content {
-        background-color: #333; /* Ciemniejsze tło modalnego okna */
-        margin: 15% auto; /* 15% od góry i centrowane */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Szerokość */
-        border-radius: 10px; /* Zaokrąglenie */
-        color: #fff; /* Jasny kolor tekstu */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    .close {
-        color: #aaa;
-        float: right; /* Prawe górne rogi */
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: white; /* Zmiana koloru przy najechaniu */
-        text-decoration: none;
-        cursor: pointer;
-    }
-    
-    #musicPlayer {
-        background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
-        color: white; /* Kolor tekstu */
-        padding: 10px;
-        border-radius: 10px; /* Zaokrąglenie rogów */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Cień dla lepszego efektu */
-    }
-
-    #playPauseBtn {
-        background-color: transparent; /* Bez tła */
-        border: none; /* Bez ramki */
-        border-radius: 50%; /* Okrągły przycisk */
-        width: 40px; /* Szerokość przycisku */
-        height: 40px; /* Wysokość przycisku */
-        display: flex; /* Użycie flexbox */
-        align-items: center; /* Wyśrodkowanie */
-        justify-content: center; /* Wyśrodkowanie */
-        transition: background-color 0.3s; /* Płynne przejście */
-    }
-
-    #playPauseBtn:hover {
-        background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
-    }
-</style>
-
-</body>
-</html>
