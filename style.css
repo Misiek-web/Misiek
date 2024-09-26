@@ -9,9 +9,10 @@ body {
 
 /* Styl nagłówka */
 header {
-    background: linear-gradient(90deg, #ff7f00, #ff0000); /* Gradient pomarańczowy-czerwony */
+    background: linear-gradient(to right, #f97316, #f43f5e); /* Gradient pomarańczowy-czerwony */
     padding: 20px 0;
     text-align: center; /* Wyśrodkowanie tekstu */
+    color: white;
 }
 
 header h1 {
