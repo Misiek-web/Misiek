@@ -21,7 +21,7 @@
 </header>
 
 <!-- Wysuwany panel odtwarzacza muzyki -->
-<div id="musicPlayerContainer" style="position: fixed; top: 10px; right: 10px; z-index: 10;">
+<div id="musicPlayerContainer" style="position: fixed; bottom: 10px; right: 10px; z-index: 10;">
     <button id="toggleButton" style="font-size: 24px;">&#9654;</button> <!-- Początkowo strzałka w prawo -->
     <div id="musicPlayer" style="display: none; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 10px;">
         <button id="playPauseBtn" style="background: none; border: none; cursor: pointer;">
@@ -32,6 +32,7 @@
         </button>
         <span id="songTitle"> - Travis Scott</span>
         <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
+        <button id="hideButton" style="background: none; border: none; cursor: pointer; margin-left: 10px;">&#x2716;</button> <!-- Przyciski do wsuwania -->
     </div>
 </div>
 
@@ -147,6 +148,7 @@
     const playPauseBtn = document.getElementById("playPauseBtn");
     const songTitle = document.getElementById("songTitle");
     const toggleButton = document.getElementById("toggleButton");
+    const hideButton = document.getElementById("hideButton");
     const musicPlayer = document.getElementById("musicPlayer");
 
     playPauseBtn.onclick = function() {
@@ -170,6 +172,12 @@
             musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
             toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
         }
+    };
+
+    // Funkcja do wsuwania odtwarzacza
+    hideButton.onclick = function() {
+        musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
+        toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
     };
 </script>
 
