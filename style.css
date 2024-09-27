@@ -1,190 +1,201 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misiek-web.pl</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        /* Stylizacja przycisku strzałki */
-        #toggleButton {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-            transition: transform 0.3s ease;
-        }
-        #toggleButton:hover {
-            transform: scale(1.2); /* Powiększa przycisk przy najechaniu */
-        }
+/* Ciemny motyw */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;  /* Ciemne tło */
+    color: #f1f1f1;  /* Jasny tekst */
+    min-height: 100vh;
+}
 
-        /* Animacje odtwarzacza */
-        #musicPlayerContainer {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            z-index: 10;
-            display: none; /* Domyślnie ukryty */
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        
-        #musicPlayer.show {
-            display: block; /* Pokaż odtwarzacz */
-        }
+/* Nagłówek */
+header {
+    display: flex;
+    justify-content: space-between; /* Rozdziela logo i nawigację */
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(to right, #f97316, #f43f5e);
+}
 
-        /* Stylizacja przycisków */
-        button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: white;
-        }
+h1 {
+    margin-left: 20px; /* Margines od lewej strony */
+    font-size: 24px;
+    color: white;
+}
 
-        button:hover {
-            opacity: 0.8; /* Efekt przy najechaniu */
-        }
-    </style>
-</head>
-<body>
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-<header>
-    <h1 style="margin-left: 20px;">Misiek Industries</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Strona Główna</a></li>
-            <li><a href="pliki.html">Pliki</a></li>
-            <li><a href="#" id="contactLink">Kontakt</a></li>
-        </ul>
-    </nav>
-</header>
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
 
-<!-- Wysuwany panel odtwarzacza muzyki -->
-<div id="musicPlayerContainer">
-    <button id="toggleButton">&#9654;</button> <!-- Początkowo strzałka w prawo -->
-    <div id="musicPlayer">
-        <button id="playPauseBtn">
-            <span id="playIcon">&#9658;</span> <!-- Ikona odtwarzania -->
-        </button>
-        <span id="songTitle">Travis Scott</span> <!-- Tytuł utworu -->
-        <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
-        <button id="hideButton">&#x2716;</button> <!-- Przycisk ukrycia -->
-    </div>
-</div>
+nav ul li a.active {
+    background-color: rgba(0, 255, 255, 0.5); /* Aqua z 50% przezroczystością */
+    color: black; /* Kolor tekstu dla aktywnej zakładki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    padding: 5px 10px; /* Wewnętrzny odstęp */
+}
 
-<main>
-    <section id="home">
-        <h2>Pozdrawiam</h2>
-        <p>Najlepsza strona na świecie, pociłem się przy niej i nocki zawalałem.</p>
-    </section>
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s; /* Animacja przejścia */
+}
 
-    <section id="computer-components">
-        <h2>Podzespoły Komputerowe</h2>
-        <div class="widgets-container">
-            <a href="https://www.intel.pl/content/www/pl/pl/homepage.html" class="widget">
-                <img src="cpu_image.jpg" alt="Procesor (CPU)">
-                <div class="widget-content">
-                    <h3>Procesor (CPU)</h3>
-                    <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych.</p>
-                </div>
-            </a>
-            <a href="https://www.msi.com/Motherboards" class="widget">
-                <img src="motherboard_image.jpg" alt="Płyta główna">
-                <div class="widget-content">
-                    <h3>Płyta główna</h3>
-                    <p>Podstawa, na której zamontowane są inne podzespoły.</p>
-                </div>
-            </a>
-            <a href="https://www.crucial.com" class="widget">
-                <img src="ram_image.jpg" alt="Pamięć RAM">
-                <div class="widget-content">
-                    <h3>Pamięć RAM</h3>
-                    <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe.</p>
-                </div>
-            </a>
-            <a href="https://www.seagate.com/pl/pl/" class="widget">
-                <img src="storage_image.jpg" alt="Dysk SSD">
-                <div class="widget-content">
-                    <h3>Dysk SSD</h3>
-                    <p>Dyski SSD są szybsze i bardziej wydajne niż tradycyjne dyski HDD.</p>
-                </div>
-            </a>
-            <a href="https://www.nvidia.com/en-us/geforce/graphics-cards/" class="widget">
-                <img src="gpu_image.jpg" alt="Karta graficzna (GPU)">
-                <div class="widget-content">
-                    <h3>Karta graficzna (GPU)</h3>
-                    <p>Odpowiedzialna za renderowanie grafiki i wideo.</p>
-                </div>
-            </a>
-            <a href="https://www.corsair.com/us/en" class="widget">
-                <img src="zasilacz.jpg" alt="Zasilacz">
-                <div class="widget-content">
-                    <h3>Zasilacz</h3>
-                    <p>Zapewnia energię dla wszystkich komponentów komputera.</p>
-                </div>
-            </a>
-        </div>
-    </section>
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Kolor tła na hover */
+    color: #f97316; /* Zmiana koloru tekstu na hover */
+}
 
-    <!-- Nowy widget na całą stronę -->
-    <section id="tutorials">
-        <div class="full-width-widget" onclick="window.open('https://www.codecademy.com/learn/learn-python-3', '_blank')">
-            <h3>Jak zacząć programować w Pythonie?</h3>
-            <p>Dowiedz się, jak rozpocząć swoją przygodę z programowaniem w Pythonie!</p>
-        </div>
-        <div class="full-width-widget" onclick="window.open('https://www.freecodecamp.org/learn/responsive-web-design/#basic-html-and-html5', '_blank')">
-            <h3>Wprowadzenie do HTML i CSS</h3>
-            <p>Poznaj podstawy tworzenia stron internetowych!</p>
-        </div>
-        <div class="full-width-widget" onclick="window.open('https://britenet.eu/pl/blog-post/top-10-narzedzi-do-nauki-programowania/', '_blank')">
-            <h3>Przegląd Narzędzi</h3>
-            <p>Odkryj narzędzia, które pomogą Ci w programowaniu.</p>
-        </div>
-    </section>
-</main>
+/* Główna zawartość */
+main {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px; /* Odstęp od stopki */
+}
 
-<footer>
-    <p>&copy; 2024 Misiek Industries. Wszelkie prawa zastrzeżone.</p>
-</footer>
+section {
+    margin-bottom: 20px;
+}
 
-<script>
-    const audio = document.getElementById('audio');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const playIcon = document.getElementById('playIcon');
-    const songTitle = document.getElementById('songTitle');
-    const toggleButton = document.getElementById('toggleButton');
-    const musicPlayerContainer = document.getElementById('musicPlayerContainer');
+/* Stylizacja widgetów */
+.widgets-container {
+    display: flex; /* Flexbox do ułożenia widgetów obok siebie */
+    flex-wrap: wrap; /* Pozwala na przełamywanie wierszy */
+    justify-content: space-between; /* Rozdziela widgety */
+    gap: 20px; /* Odstęp między widgetami */
+    margin: 20px; /* Margines dla całego kontenera */
+}
 
-    // Funkcja do odtwarzania/pauzowania
-    playPauseBtn.addEventListener('click', function() {
-        if (audio.paused) {
-            audio.play();
-            playIcon.innerHTML = '&#10074;&#10074;'; // Zmiana na pauzę
-        } else {
-            audio.pause();
-            playIcon.innerHTML = '&#9658;'; // Zmiana na odtwarzanie
-        }
-    });
+.widget {
+    position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
+    border-radius: 10px; /* Zaokrąglenie */
+    width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
+    overflow: hidden; /* Ukrywa nadmiarowe elementy */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    color: white; /* Kolor tekstu */
+    transition: transform 0.3s ease; /* Dodano efekt powiększenia przy najechaniu */
+    cursor: pointer; /* Kursor wskazuje, że widget jest klikalny */
+}
 
-    // Funkcja do włączania/wyłączania odtwarzacza
-    toggleButton.addEventListener('click', function() {
-        if (musicPlayerContainer.style.display === "none" || musicPlayerContainer.style.display === "") {
-            musicPlayerContainer.style.display = "block";
-            musicPlayerContainer.classList.add('show');
-        } else {
-            musicPlayerContainer.classList.remove('show');
-            musicPlayerContainer.style.display = "none";
-        }
-    });
+.widget img {
+    width: 100%; /* Obrazek rozciąga się na szerokość widgetu */
+    height: auto; /* Automatyczna wysokość */
+    display: block; /* Usunięcie domyślnego marginesu */
+    transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
+}
 
-    // Funkcja do ukrywania odtwarzacza
-    hideButton.addEventListener('click', function() {
-        musicPlayerContainer.style.display = "none";
-    });
-</script>
+.widget:hover img {
+    opacity: 0.5; /* Przyciemnienie zdjęcia na 50% przy najechaniu */
+}
 
-</body>
-</html>
+/* Efekty najechania */
+.widget:hover {
+    transform: scale(1.05); /* Powiększa widget przy najechaniu */
+}
+
+.widget-content {
+    position: absolute; /* Pozycjonowanie tekstu */
+    top: 50%; /* Wyrównanie do środka */
+    left: 50%; /* Wyrównanie do środka */
+    transform: translate(-50%, -50%); /* Wyśrodkowanie */
+    opacity: 0; /* Początkowo niewidoczne */
+    transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    color: white; /* Kolor tekstu na biały */
+}
+
+.widget:hover .widget-content {
+    opacity: 1; /* Widoczność tekstu przy najechaniu */
+}
+
+.widget h3 {
+    margin: 0 0 10px; /* Odstęp od tytułu */
+    color: white; /* Kolor tytułu na biały */
+}
+
+.widget p {
+    margin: 0; /* Usunięcie domyślnego marginesu */
+}
+
+/* Stopka */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Stylizacja linków */
+footer a {
+    color: #f97316;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Stylizacja przycisku Play/Pause */
+#playPauseBtn {
+    background-color: transparent; /* Bez tła */
+    border: none; /* Bez ramki */
+    border-radius: 50%; /* Okrągły przycisk */
+    width: 40px; /* Szerokość przycisku */
+    height: 40px; /* Wysokość przycisku */
+    display: flex; /* Użycie flexbox */
+    align-items: center; /* Wyśrodkowanie */
+    justify-content: center; /* Wyśrodkowanie */
+    transition: background-color 0.3s; /* Płynne przejście */
+}
+
+#playPauseBtn:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
+}
+
+/* Wysuwany panel z odtwarzaczem */
+#musicPlayerContainer {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#toggleButton {
+    background-color: #f97316;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    transition: background-color 0.3s;
+}
+
+#toggleButton:hover {
+    background-color: #f43f5e;
+}
+
+#musicPlayer {
+    display: none; /* Domyślnie ukryty */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    margin-left: -200px; /* Panel będzie wysunięty na lewo od ekranu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Wysunięty panel */
+#musicPlayer.open {
+    display: block;
+}
