@@ -53,9 +53,16 @@
             border-radius: 10px; /* Zaokrąglenie */
             padding: 20px; /* Wewnętrzny margines */
             width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
-            height: 200px; /* Wyższa wysokość */
             position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
             overflow: hidden; /* Ukrywa nadmiarowe elementy */
+            text-align: center; /* Wyśrodkowanie tekstu */
+        }
+
+        .widget img {
+            max-width: 100%; /* Ustal maksymalną szerokość */
+            max-height: 150px; /* Ustal maksymalną wysokość */
+            border-radius: 10px; /* Zaokrąglenie krawędzi obrazka */
+            margin-bottom: 10px; /* Odstęp od tekstu */
         }
 
         .widget h3 {
@@ -65,39 +72,6 @@
 
         .widget p {
             margin: 0; /* Usunięcie domyślnego marginesu */
-        }
-
-        .image-overlay {
-            position: absolute; /* Pozycjonowanie bez względu na inne elementy */
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0; 
-            background: rgba(255, 255, 255, 0.8); /* Lekka przezroczystość */
-            opacity: 0; /* Zaczynamy od niewidocznego */
-            transition: opacity 0.5s ease; /* Płynne przejście */
-            display: flex; /* Flexbox do centrowania */
-            justify-content: center; /* W poziomie */
-            align-items: center; /* W pionie */
-        }
-
-        .widget:hover .image-overlay {
-            opacity: 1; /* W pełni widoczne po najechaniu */
-        }
-
-        .widget:hover h3, .widget:hover p {
-            opacity: 0; /* Znika tekst */
-            transition: opacity 0.5s ease; /* Płynne przejście */
-        }
-
-        .widget img {
-            max-width: 100px; /* Ustal maksymalną szerokość */
-            max-height: 100px; /* Ustal maksymalną wysokość */
-            display: none; /* Domyślnie ukryte */
-        }
-
-        .widget:hover img {
-            display: block; /* Pokaż obrazek po najechaniu */
         }
     </style>
 </head>
@@ -139,44 +113,34 @@
         <h2>Podzespoły Komputerowe</h2>
         <div class="widgets-container">
             <div class="widget">
+                <img src="cpu_image.jpg" alt="Procesor (CPU)"> <!-- Zmień na odpowiednie zdjęcie -->
                 <h3>Procesor (CPU)</h3>
                 <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
                 <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <img src="cpu_image.jpg" alt="Procesor (CPU)"> <!-- Zmień na odpowiednie zdjęcie -->
-                </div>
             </div>
             <div class="widget">
+                <img src="motherboard_image.jpg" alt="Płyta główna"> <!-- Zmień na odpowiednie zdjęcie -->
                 <h3>Płyta główna</h3>
                 <p>Podstawa, na której zamontowane są inne podzespoły. 
                 <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <img src="motherboard_image.jpg" alt="Płyta główna"> <!-- Zmień na odpowiednie zdjęcie -->
-                </div>
             </div>
             <div class="widget">
+                <img src="ram_image.jpg" alt="Pamięć RAM"> <!-- Zmień na odpowiednie zdjęcie -->
                 <h3>Pamięć RAM</h3>
                 <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
                 <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <img src="ram_image.jpg" alt="Pamięć RAM"> <!-- Zmień na odpowiednie zdjęcie -->
-                </div>
             </div>
             <div class="widget">
+                <img src="gpu_image.jpg" alt="Karta graficzna (GPU)"> <!-- Zmień na odpowiednie zdjęcie -->
                 <h3>Karta graficzna (GPU)</h3>
                 <p>Odpowiada za rendering grafiki. 
                 <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <img src="gpu_image.jpg" alt="Karta graficzna (GPU)"> <!-- Zmień na odpowiednie zdjęcie -->
-                </div>
             </div>
             <div class="widget">
+                <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)"> <!-- Zmień na odpowiednie zdjęcie -->
                 <h3>Dysk twardy (HDD/SSD)</h3>
                 <p>Dyski twarde to urządzenia do przechowywania danych, SSD jest szybszy od HDD. 
                 <a href="https://www.pcgamer.com/what-is-the-difference-between-ssd-and-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)"> <!-- Zmień na odpowiednie zdjęcie -->
-                </div>
             </div>
         </div>
     </section>
@@ -190,65 +154,66 @@
     </div>
 </div>
 
-<footer style="background-color: #222; color: white; text-align: center; padding: 10px;">
-    <p>&copy; 2024 Misiek Industries</p>
-    <p>
-        <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
-        <a href="#terms" style="color: #ddd;">Warunki Użytkowania</a> |
-        <a href="#cookies" style="color: #ddd;">Pliki Cookies</a>
-    </p>
+<footer style="background-color: #34495e; color: white; text-align: center; padding: 10px;">
+    <p>© 2024 Misiek Industries. Wszelkie prawa zastrzeżone.</p>
 </footer>
 
 <script>
-    const playPauseBtn = document.getElementById("playPauseBtn");
-    const audio = document.getElementById("audio");
-    const songTitle = document.getElementById("songTitle");
-    const toggleButton = document.getElementById("toggleButton");
-    const hideButton = document.getElementById("hideButton");
-    const musicPlayer = document.getElementById("musicPlayer");
-    const musicPlayerContainer = document.getElementById("musicPlayerContainer");
+    document.getElementById('toggleButton').onclick = function() {
+        var player = document.getElementById('musicPlayer');
+        var container = document.getElementById('musicPlayerContainer');
+        var isVisible = player.style.display === 'block';
 
-    playPauseBtn.onclick = function() {
+        if (isVisible) {
+            player.classList.remove('show');
+            player.classList.add('hide');
+            setTimeout(function() {
+                player.style.display = 'none'; // Ukryj po animacji
+            }, 300);
+            this.innerHTML = '&#9654;'; // Zmień na przycisk odtwarzania
+        } else {
+            player.style.display = 'block';
+            setTimeout(function() {
+                player.classList.add('show');
+                player.classList.remove('hide');
+            }, 0);
+            this.innerHTML = '&#9664;'; // Zmień na przycisk pauzy
+        }
+    };
+
+    document.getElementById('playPauseBtn').onclick = function() {
+        var audio = document.getElementById('audio');
+        var playIcon = document.getElementById('playIcon');
+        
         if (audio.paused) {
             audio.play();
-            playPauseBtn.innerHTML = '<svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><rect x="11" y="10" width="3" height="10" fill="black" /><rect x="16" y="10" width="3" height="10" fill="black" /></svg>';
-            songTitle.textContent = " - Travis Scott (Odtwarzanie..."; 
+            playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="white" />'; // Zmiana na ikonkę pauzy
         } else {
             audio.pause();
-            playPauseBtn.innerHTML = '<svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><polygon points="12,10 12,20 20,15" fill="black" /></svg>';
-            songTitle.textContent = " - Travis Scott (Wstrzymane)";
+            playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="black" />'; // Zmiana na ikonkę odtwarzania
         }
     };
 
-    // Funkcja do przełączania widoczności odtwarzacza
-    toggleButton.onclick = function() {
-        if (musicPlayer.style.display === "none") {
-            musicPlayer.style.display = "block"; // Pokazuje odtwarzacz
-            setTimeout(() => {
-                musicPlayer.classList.add("show");
-                musicPlayer.classList.remove("hide");
-            }, 0);
-            toggleButton.innerHTML = '&#9664;'; // Zmień ikonę na strzałkę w lewo
-        } else {
-            musicPlayer.classList.add("hide");
-            musicPlayer.classList.remove("show");
-            setTimeout(() => {
-                musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
-            }, 300); // Czas odpowiada czasowi animacji
-            toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
-        }
+    document.getElementById('hideButton').onclick = function() {
+        var player = document.getElementById('musicPlayer');
+        player.classList.remove('show');
+        player.classList.add('hide');
+        setTimeout(function() {
+            player.style.display = 'none'; // Ukryj po animacji
+        }, 300);
+        document.getElementById('toggleButton').innerHTML = '&#9654;'; // Zmień na przycisk odtwarzania
     };
 
-    // Funkcja do wsuwania odtwarzacza
-    hideButton.onclick = function() {
-        musicPlayer.classList.add("hide");
-        musicPlayer.classList.remove("show");
-        setTimeout(() => {
-            musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
-        }, 300); // Czas odpowiada czasowi animacji
-        toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
+    document.getElementById('contactLink').onclick = function() {
+        document.getElementById('contactModal').style.display = 'block';
+    };
+
+    // Kliknięcie poza modalem, aby go zamknąć
+    window.onclick = function(event) {
+        if (event.target === document.getElementById('contactModal')) {
+            document.getElementById('contactModal').style.display = 'none';
+        }
     };
 </script>
-
 </body>
 </html>
