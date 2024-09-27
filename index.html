@@ -132,18 +132,19 @@
 </header>
 
 <!-- Wysuwany panel odtwarzacza muzyki -->
-<div id="musicPlayer" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 10px;">
-    <button id="playPauseBtn" style="background: none; border: none; cursor: pointer;">
-        <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-            <circle cx="15" cy="15" r="15" fill="white" />
-            <polygon points="12,10 12,20 20,15" fill="black" />
-        </svg>
-    </button>
-    <span id="songTitle"> - Travis Scott</span>
-    <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
-    <button id="hideButton" style="background: none; border: none; cursor: pointer; margin-left: 10px;">&#x2716;</button> <!-- Close button -->
-</div>
-
+<div id="musicPlayerContainer" style="position: fixed; bottom: 10px; right: 10px; z-index: 10;">
+    <button id="toggleButton">&#9654;</button> <!-- Początkowo strzałka w prawo -->
+    <div id="musicPlayer" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 10px; display: none;">
+        <button id="playPauseBtn" style="background: none; border: none; cursor: pointer;">
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                <circle cx="15" cy="15" r="15" fill="white" />
+                <polygon points="12,10 12,20 20,15" fill="black" />
+            </svg>
+        </button>
+        <span id="songTitle"></span> <!-- Tytuł utworu -->
+        <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
+        <button id="hideButton" style="background: none; border: none; cursor: pointer; margin-left: 10px;">&#x2716;</button>
+    </div>
 </div>
 
 <main>
