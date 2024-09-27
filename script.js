@@ -1,12 +1,10 @@
 // Funkcja do pokazania obrazka po kliknięciu przycisku
 document.getElementById('showImageBtn').addEventListener('click', function() {
     const image = document.getElementById('dynamicImage');
-    if (image.style.display === 'none' || image.style.display === '') {
-        image.style.display = 'block';
-    } else {
-        image.style.display = 'none';
-    }
+    // Przełącz widoczność obrazka
+    image.style.display = (image.style.display === 'none' || image.style.display === '') ? 'block' : 'none';
 });
+
 const audio = document.getElementById('audio');
 const playPauseBtn = document.getElementById('playPauseBtn');
 const playIcon = document.getElementById('playIcon');
@@ -33,11 +31,9 @@ playPauseBtn.addEventListener('click', function() {
 
 // Funkcja do rozwijania/zwijania odtwarzacza
 toggleButton.addEventListener('click', function() {
-    if (musicPlayer.style.display === "none" || musicPlayer.style.display === "") {
-        musicPlayer.style.display = "block"; // Pokaż odtwarzacz
+    musicPlayer.style.display = (musicPlayer.style.display === "none" || musicPlayer.style.display === "") ? "block" : "none"; // Przełącz widoczność odtwarzacza
+    if (musicPlayer.style.display === "block") {
         songTitle.innerHTML = " - Travis Scott"; // Przywróć tytuł utworu
-    } else {
-        musicPlayer.style.display = "none"; // Ukryj odtwarzacz
     }
 });
 
