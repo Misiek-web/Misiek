@@ -1,43 +1,59 @@
 // Funkcja do pokazania obrazka po kliknięciu przycisku
 document.getElementById('showImageBtn').addEventListener('click', function() {
     const image = document.getElementById('dynamicImage');
-    // Przełącz widoczność obrazka
-    image.style.display = (image.style.display === 'none' || image.style.display === '') ? 'block' : 'none';
+    if (image.style.display === 'none' || image.style.display === '') {
+        image.style.display = 'block';
+    } else {
+        image.style.display = 'none';
+    }
 });
 
-const audio = document.getElementById('audio');
-const playPauseBtn = document.getElementById('playPauseBtn');
-const playIcon = document.getElementById('playIcon');
-const songTitle = document.getElementById('songTitle');
-const toggleButton = document.getElementById('toggleButton');
-const musicPlayer = document.getElementById('musicPlayer');
-const hideButton = document.getElementById('hideButton');
+// Funkcja do obsługi odtwarzacza muzyki
+document.getElementById('playPauseBtn').addEventListener('click', function() {
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
 
-// Ustawienie widoczności odtwarzacza na 'none'
-musicPlayer.style.display = "none";
-
-// Funkcja do odtwarzania/pauzowania
-playPauseBtn.addEventListener('click', function() {
     if (audio.paused) {
         audio.play();
-        playIcon.innerHTML = '<polygon points="10,10 10,20 20,15" fill="black" />'; // Ikona pauzy
-        songTitle.innerHTML = " - Travis Scott"; // Tytuł utworu
+        playPauseBtn.innerHTML = `
+            <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                <circle cx="15" cy="15" r="15" fill="white" />
+                <rect x="10" y="10" width="4" height="10" fill="black" />
+                <rect x="16" y="10" width="4" height="10" fill="black" />
+            </svg>
+        `;
     } else {
         audio.pause();
-        playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="black" />'; // Ikona odtwarzania
-        songTitle.innerHTML = ""; // Ukryj tytuł utworu
+        playPauseBtn.innerHTML = `
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                <circle cx="15" cy="15" r="15" fill="white" />
+                <polygon points="12,10 12,20 20,15" fill="black" />
+            </svg>
+        `;
     }
 });
 
-// Funkcja do rozwijania/zwijania odtwarzacza
-toggleButton.addEventListener('click', function() {
-    musicPlayer.style.display = (musicPlayer.style.display === "none" || musicPlayer.style.display === "") ? "block" : "none"; // Przełącz widoczność odtwarzacza
-    if (musicPlayer.style.display === "block") {
-        songTitle.innerHTML = " - Travis Scott"; // Przywróć tytuł utworu
+// Funkcja do wysuwania i chowania panelu z odtwarzaczem muzyki
+document.getElementById('toggleButton').addEventListener('click', function() {
+    const musicPlayer = document.getElementById('musicPlayer');
+    const toggleButton = document.getElementById('toggleButton');
+
+    if (musicPlayer.style.display === 'none' || musicPlayer.style.display === '') {
+        musicPlayer.style.display = 'block'; // Pokazuje panel
+        toggleButton.innerHTML = '&#9664;'; // Zmienia przycisk na strzałkę w lewo
+    } else {
+        musicPlayer.style.display = 'none'; // Chowa panel
+        toggleButton.innerHTML = '&#9654;'; // Zmienia przycisk na strzałkę w prawo
     }
 });
 
-// Funkcja do ukrywania odtwarzacza
-hideButton.addEventListener('click', function() {
-    musicPlayer.style.display = "none"; // Ukryj odtwarzacz po naciśnięciu przycisku
+// Opcjonalnie: Funkcja, która automatycznie chowa odtwarzacz po zjechaniu kursorem
+document.getElementById('musicPlayerContainer').addEventListener('mouseleave', function() {
+    const musicPlayer = document.getElementById('musicPlayer');
+    const toggleButton = document.getElementById('toggleButton');
+
+    if (musicPlayer.style.display === 'block') {
+        musicPlayer.style.display = 'none'; // Chowa panel
+        toggleButton.innerHTML = '&#9654;'; // Zmienia przycisk na strzałkę w prawo
+    }
 });
