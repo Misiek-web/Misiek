@@ -14,6 +14,7 @@ header {
     padding: 20px;
     text-align: center;
     color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
 }
 
 /* Nawigacja */
@@ -46,6 +47,7 @@ nav ul li a {
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Kolor tła na hover */
     color: #f97316; /* Zmiana koloru tekstu na hover */
+    border-radius: 5px; /* Zaokrąglenie rogów na hover */
 }
 
 /* Główna zawartość */
@@ -53,6 +55,8 @@ main {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px; /* Odstęp od stopki */
+    background-color: #2a2a2a; /* Lekko jaśniejsze tło dla treści */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
 }
 
 section {
@@ -68,6 +72,7 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
 }
 
 /* Stylizacja linków */
@@ -78,6 +83,15 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Odtwarzacz muzyki */
+#musicPlayer {
+    background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
+    color: white; /* Kolor tekstu */
+    padding: 10px;
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień dla lepszego efektu */
 }
 
 #playPauseBtn {
@@ -94,4 +108,21 @@ footer a:hover {
 
 #playPauseBtn:hover {
     background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
+}
+
+/* Responsywność dla urządzeń mobilnych */
+@media (max-width: 600px) {
+    header {
+        padding: 10px;
+    }
+    
+    nav ul li {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+    
+    main {
+        padding: 10px;
+    }
 }
