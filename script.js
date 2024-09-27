@@ -57,3 +57,13 @@ document.getElementById('musicPlayerContainer').addEventListener('mouseleave', f
         toggleButton.innerHTML = '&#9654;'; // Zmienia przycisk na strzałkę w prawo
     }
 });
+
+// Początkowa konfiguracja widoczności odtwarzacza
+document.addEventListener('DOMContentLoaded', function() {
+    const musicPlayer = document.getElementById('musicPlayer');
+    const toggleButton = document.getElementById('toggleButton');
+    
+    // Upewnij się, że odtwarzacz jest ukryty przy załadowaniu strony
+    musicPlayer.style.display = 'none';
+    toggleButton.innerHTML = '&#9654;'; // Strzałka w prawo przy starcie
+});
