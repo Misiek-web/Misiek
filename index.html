@@ -1,60 +1,245 @@
-/* Stylizacja kontenera na widgety */
-.widgets-container {
-    display: flex; /* Flexbox do ułożenia widgetów obok siebie */
-    flex-wrap: wrap; /* Pozwala na przełamywanie wierszy */
-    justify-content: space-between; /* Rozdziela widgety */
-    gap: 20px; /* Odstęp między widgetami */
-    margin: 20px; /* Margines dla całego kontenera */
-}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misiek.pl</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Stylizacja przycisku strzałki */
+        #toggleButton {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+        #toggleButton:hover {
+            transform: scale(1.2); /* Powiększa przycisk przy najechaniu */
+        }
 
-/* Stylizacja widgetów */
-.widget {
-    position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
-    border-radius: 10px; /* Zaokrąglenie */
-    width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
-    overflow: hidden; /* Ukrywa nadmiarowe elementy */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    color: white; /* Kolor tekstu */
-    transition: transform 0.3s ease; /* Dodano efekt powiększenia przy najechaniu */
-    cursor: pointer; /* Kursor wskazuje, że widget jest klikalny */
-}
+        /* Animacje odtwarzacza */
+        #musicPlayerContainer {
+            transition: bottom 0.5s ease; /* Animacja przesuwania odtwarzacza */
+        }
+        #musicPlayer {
+            opacity: 0;
+            transform: translateY(20px); /* Przesunięcie w dół */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        #musicPlayer.show {
+            opacity: 1;
+            transform: translateY(0); /* Powrót na miejsce */
+        }
+        #musicPlayer.hide {
+            opacity: 0;
+            transform: translateY(20px); /* Znowu w dół */
+        }
 
-.widget img {
-    width: 100%; /* Obrazek rozciąga się na szerokość widgetu */
-    height: auto; /* Automatyczna wysokość */
-    display: block; /* Usunięcie domyślnego marginesu */
-    transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
-}
+        /* Stylizacja kontenera na widgety */
+        .widgets-container {
+            display: flex; /* Flexbox do ułożenia widgetów obok siebie */
+            flex-wrap: wrap; /* Pozwala na przełamywanie wierszy */
+            justify-content: space-between; /* Rozdziela widgety */
+            gap: 20px; /* Odstęp między widgetami */
+            margin: 20px; /* Margines dla całego kontenera */
+        }
 
-.widget:hover img {
-    opacity: 0.2; /* Rozjaśnienie zdjęcia na 20% przy najechaniu */
-}
+        /* Stylizacja widgetów */
+        .widget {
+            position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
+            border-radius: 10px; /* Zaokrąglenie */
+            width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
+            overflow: hidden; /* Ukrywa nadmiarowe elementy */
+            text-align: center; /* Wyśrodkowanie tekstu */
+            color: white; /* Kolor tekstu */
+            transition: transform 0.3s ease; /* Dodano efekt powiększenia przy najechaniu */
+            cursor: pointer; /* Kursor wskazuje, że widget jest klikalny */
+        }
 
-/* Efekty najechania */
-.widget:hover {
-    transform: scale(1.05); /* Powiększa widget przy najechaniu */
-}
+        .widget img {
+            width: 100%; /* Obrazek rozciąga się na szerokość widgetu */
+            height: auto; /* Automatyczna wysokość */
+            display: block; /* Usunięcie domyślnego marginesu */
+        }
 
-.widget-content {
-    position: absolute; /* Pozycjonowanie tekstu */
-    top: 50%; /* Wyrównanie do środka */
-    left: 50%; /* Wyrównanie do środka */
-    transform: translate(-50%, -50%); /* Wyśrodkowanie */
-    opacity: 0; /* Początkowo niewidoczne */
-    transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    color: black; /* Kolor tekstu na czarny */
-}
+        /* Efekty najechania */
+        .widget:hover {
+            transform: scale(1.05); /* Powiększa widget przy najechaniu */
+        }
 
-.widget:hover .widget-content {
-    opacity: 1; /* Widoczność tekstu przy najechaniu */
-}
+        .widget-content {
+            position: absolute; /* Pozycjonowanie tekstu */
+            top: 50%; /* Wyrównanie do środka */
+            left: 50%; /* Wyrównanie do środka */
+            transform: translate(-50%, -50%); /* Wyśrodkowanie */
+            opacity: 0; /* Początkowo niewidoczne */
+            transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
+            text-align: center; /* Wyśrodkowanie tekstu */
+        }
 
-.widget h3 {
-    margin: 0 0 10px; /* Odstęp od tytułu */
-    color: #000; /* Kolor tytułu na czarny */
-}
+        .widget:hover .widget-content {
+            opacity: 1; /* Widoczność tekstu przy najechaniu */
+        }
 
-.widget p {
-    margin: 0; /* Usunięcie domyślnego marginesu */
-}
+        .widget h3 {
+            margin: 0 0 10px; /* Odstęp od tytułu */
+            color: #ecf0f1; /* Kolor tytułu */
+        }
+
+        .widget p {
+            margin: 0; /* Usunięcie domyślnego marginesu */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 style="margin-left: 20px;">Misiek Industries</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Strona Główna</a></li>
+            <li><a href="pliki.html">Pliki</a></li>
+            <li><a href="#" id="contactLink">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Wysuwany panel odtwarzacza muzyki -->
+<div id="musicPlayerContainer" style="position: fixed; bottom: 10px; right: 10px; z-index: 10;">
+    <button id="toggleButton">&#9654;</button> <!-- Początkowo strzałka w prawo -->
+    <div id="musicPlayer" style="background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 10px; display: none;">
+        <button id="playPauseBtn" style="background: none; border: none; cursor: pointer;">
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                <circle cx="15" cy="15" r="15" fill="white" />
+                <polygon points="12,10 12,20 20,15" fill="black" />
+            </svg>
+        </button>
+        <span id="songTitle"> - Travis Scott</span>
+        <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
+        <button id="hideButton" style="background: none; border: none; cursor: pointer; margin-left: 10px;">&#x2716;</button> <!-- Przyciski do wsuwania -->
+    </div>
+</div>
+
+<main>
+    <section id="home">
+        <h2>Pozdrawiam</h2>
+        <p>Najlepsza strona na świecie, pociłem się przy niej i nocki zawalałem.</p>
+    </section>
+    <section id="computer-components">
+        <h2>Podzespoły Komputerowe</h2>
+        <div class="widgets-container">
+            <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" class="widget">
+                <img src="cpu_image.jpg" alt="Procesor (CPU)">
+                <div class="widget-content">
+                    <h3>Procesor (CPU)</h3>
+                    <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych.</p>
+                </div>
+            </a>
+            <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" class="widget">
+                <img src="motherboard_image.jpg" alt="Płyta główna">
+                <div class="widget-content">
+                    <h3>Płyta główna</h3>
+                    <p>Podstawa, na której zamontowane są inne podzespoły.</p>
+                </div>
+            </a>
+            <a href="https://www.crucial.com/articles/about-memory/what-is-ram" class="widget">
+                <img src="ram_image.jpg" alt="Pamięć RAM">
+                <div class="widget-content">
+                    <h3>Pamięć RAM</h3>
+                    <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe.</p>
+                </div>
+            </a>
+            <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" class="widget">
+                <img src="gpu_image.jpg" alt="Karta graficzna (GPU)">
+                <div class="widget-content">
+                    <h3>Karta graficzna (GPU)</h3>
+                    <p>Odpowiada za rendering grafiki.</p>
+                </div>
+            </a>
+            <a href="https://www.howtogeek.com/652276/what-is-the-difference-between-ssd-and-hdd/" class="widget">
+                <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)">
+                <div class="widget-content">
+                    <h3>Dysk twardy (HDD/SSD)</h3>
+                    <p>Przechowuje dane na stałe.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+</main>
+
+<!-- Modal kontaktowy -->
+<div id="contactModal" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 100;">
+    <div style="background-color: white; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 500px;">
+        <h2>Kontakt</h2>
+        <p>Proszę wpisać wiadomość:</p>
+        <textarea rows="4" style="width: 100%;"></textarea>
+        <button style="margin-top: 10px;">Wyślij</button>
+        <button style="float: right; margin-top: -30px; background: none; border: none; cursor: pointer;" onclick="document.getElementById('contactModal').style.display='none'">✖</button>
+    </div>
+</div>
+
+<footer style="background-color: #34495e; color: white; text-align: center; padding: 10px;">
+    <p>© 2024 Misiek Industries. Wszelkie prawa zastrzeżone.</p>
+</footer>
+
+<script>
+    document.getElementById('toggleButton').onclick = function() {
+        var player = document.getElementById('musicPlayer');
+        var container = document.getElementById('musicPlayerContainer');
+        var isVisible = player.style.display === 'block';
+
+        if (isVisible) {
+            player.classList.remove('show');
+            player.classList.add('hide');
+            setTimeout(function() {
+                player.style.display = 'none'; // Ukryj po animacji
+            }, 300);
+            this.innerHTML = '&#9654;'; // Zmień na przycisk odtwarzania
+        } else {
+            player.style.display = 'block';
+            setTimeout(function() {
+                player.classList.add('show');
+                player.classList.remove('hide');
+            }, 0);
+            this.innerHTML = '&#9664;'; // Zmień na przycisk pauzy
+        }
+    };
+
+    document.getElementById('playPauseBtn').onclick = function() {
+        var audio = document.getElementById('audio');
+        var playIcon = document.getElementById('playIcon');
+        
+        if (audio.paused) {
+            audio.play();
+            playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="white" />'; // Zmiana na ikonkę pauzy
+        } else {
+            audio.pause();
+            playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="black" />'; // Zmiana na ikonkę odtwarzania
+        }
+    };
+
+    document.getElementById('hideButton').onclick = function() {
+        var player = document.getElementById('musicPlayer');
+        player.classList.remove('show');
+        player.classList.add('hide');
+        setTimeout(function() {
+            player.style.display = 'none'; // Ukryj po animacji
+        }, 300);
+        document.getElementById('toggleButton').innerHTML = '&#9654;'; // Zmień na przycisk odtwarzania
+    };
+
+    document.getElementById('contactLink').onclick = function() {
+        document.getElementById('contactModal').style.display = 'block';
+    };
+
+    // Kliknięcie poza modalem, aby go zamknąć
+    window.onclick = function(event) {
+        if (event.target === document.getElementById('contactModal')) {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+    };
+</script>
+</body>
+</html>
