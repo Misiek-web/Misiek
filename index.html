@@ -48,21 +48,38 @@
 
         /* Stylizacja widgetów */
         .widget {
-            background-color: #2c3e50; /* Ciemne tło */
-            color: white; /* Kolor tekstu */
-            border-radius: 10px; /* Zaokrąglenie */
-            padding: 20px; /* Wewnętrzny margines */
-            width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
             position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
+            border-radius: 10px; /* Zaokrąglenie */
+            width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
             overflow: hidden; /* Ukrywa nadmiarowe elementy */
             text-align: center; /* Wyśrodkowanie tekstu */
+            color: white; /* Kolor tekstu */
+            transition: transform 0.3s ease; /* Dodano efekt powiększenia przy najechaniu */
         }
 
         .widget img {
-            max-width: 100%; /* Ustal maksymalną szerokość */
-            max-height: 150px; /* Ustal maksymalną wysokość */
-            border-radius: 10px; /* Zaokrąglenie krawędzi obrazka */
-            margin-bottom: 10px; /* Odstęp od tekstu */
+            width: 100%; /* Obrazek rozciąga się na szerokość widgetu */
+            height: auto; /* Automatyczna wysokość */
+            display: block; /* Usunięcie domyślnego marginesu */
+        }
+
+        /* Efekty najechania */
+        .widget:hover {
+            transform: scale(1.05); /* Powiększa widget przy najechaniu */
+        }
+
+        .widget-content {
+            position: absolute; /* Pozycjonowanie tekstu */
+            top: 50%; /* Wyrównanie do środka */
+            left: 50%; /* Wyrównanie do środka */
+            transform: translate(-50%, -50%); /* Wyśrodkowanie */
+            opacity: 0; /* Początkowo niewidoczne */
+            transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
+            text-align: center; /* Wyśrodkowanie tekstu */
+        }
+
+        .widget:hover .widget-content {
+            opacity: 1; /* Widoczność tekstu przy najechaniu */
         }
 
         .widget h3 {
@@ -114,43 +131,56 @@
         <div class="widgets-container">
             <div class="widget">
                 <img src="cpu_image.jpg" alt="Procesor (CPU)"> <!-- Zmień na odpowiednie zdjęcie -->
-                <h3>Procesor (CPU)</h3>
-                <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
-                <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
+                <div class="widget-content">
+                    <h3>Procesor (CPU)</h3>
+                    <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
+                    <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
+                </div>
             </div>
             <div class="widget">
                 <img src="motherboard_image.jpg" alt="Płyta główna"> <!-- Zmień na odpowiednie zdjęcie -->
-                <h3>Płyta główna</h3>
-                <p>Podstawa, na której zamontowane są inne podzespoły. 
-                <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
+                <div class="widget-content">
+                    <h3>Płyta główna</h3>
+                    <p>Podstawa, na której zamontowane są inne podzespoły. 
+                    <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
+                </div>
             </div>
             <div class="widget">
                 <img src="ram_image.jpg" alt="Pamięć RAM"> <!-- Zmień na odpowiednie zdjęcie -->
-                <h3>Pamięć RAM</h3>
-                <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
-                <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
+                <div class="widget-content">
+                    <h3>Pamięć RAM</h3>
+                    <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
+                    <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
+                </div>
             </div>
             <div class="widget">
                 <img src="gpu_image.jpg" alt="Karta graficzna (GPU)"> <!-- Zmień na odpowiednie zdjęcie -->
-                <h3>Karta graficzna (GPU)</h3>
-                <p>Odpowiada za rendering grafiki. 
-                <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
+                <div class="widget-content">
+                    <h3>Karta graficzna (GPU)</h3>
+                    <p>Odpowiada za rendering grafiki. 
+                    <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
+                </div>
             </div>
             <div class="widget">
                 <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)"> <!-- Zmień na odpowiednie zdjęcie -->
-                <h3>Dysk twardy (HDD/SSD)</h3>
-                <p>Dyski twarde to urządzenia do przechowywania danych, SSD jest szybszy od HDD. 
-                <a href="https://www.pcgamer.com/what-is-the-difference-between-ssd-and-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
+                <div class="widget-content">
+                    <h3>Dysk twardy (HDD/SSD)</h3>
+                    <p>Przechowuje dane na stałe. 
+                    <a href="https://www.howtogeek.com/652276/what-is-the-difference-between-ssd-and-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
+                </div>
             </div>
         </div>
     </section>
 </main>
 
-<div id="contactModal" style="display: none;">
-    <div style="background: white; padding: 20px; border-radius: 10px;">
+<!-- Modal kontaktowy -->
+<div id="contactModal" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 100;">
+    <div style="background-color: white; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 500px;">
         <h2>Kontakt</h2>
-        <button onclick="document.getElementById('contactModal').style.display='none'" style="background: none; border: none; cursor: pointer; font-size: 24px;">&times;</button>
-        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
+        <p>Proszę wpisać wiadomość:</p>
+        <textarea rows="4" style="width: 100%;"></textarea>
+        <button style="margin-top: 10px;">Wyślij</button>
+        <button style="float: right; margin-top: -30px; background: none; border: none; cursor: pointer;" onclick="document.getElementById('contactModal').style.display='none'">✖</button>
     </div>
 </div>
 
