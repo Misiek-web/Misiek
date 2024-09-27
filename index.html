@@ -36,71 +36,6 @@
             opacity: 0;
             transform: translateY(20px); /* Znowu w dół */
         }
-
-        /* Stylizacja kontenera na widgety */
-        .widgets-container {
-            display: flex; /* Flexbox do ułożenia widgetów obok siebie */
-            flex-wrap: wrap; /* Pozwala na przełamywanie wierszy */
-            justify-content: space-between; /* Rozdziela widgety */
-            gap: 20px; /* Odstęp między widgetami */
-            margin: 20px; /* Margines dla całego kontenera */
-        }
-
-        /* Stylizacja widgetów */
-        .widget {
-            background-color: #2c3e50; /* Ciemne tło */
-            color: white; /* Kolor tekstu */
-            border-radius: 10px; /* Zaokrąglenie */
-            padding: 20px; /* Wewnętrzny margines */
-            width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
-            height: 200px; /* Wyższa wysokość */
-            position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
-            overflow: hidden; /* Ukrywa nadmiarowe elementy */
-        }
-
-        .widget h3 {
-            margin: 0 0 10px; /* Odstęp od tytułu */
-            color: #ecf0f1; /* Kolor tytułu */
-        }
-
-        .widget p {
-            margin: 0; /* Usunięcie domyślnego marginesu */
-        }
-
-        .image-overlay {
-            position: absolute; /* Pozycjonowanie bez względu na inne elementy */
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0; 
-            background: rgba(255, 255, 255, 0.8); /* Lekka przezroczystość */
-            opacity: 0; /* Zaczynamy od niewidocznego */
-            transition: opacity 0.5s ease; /* Płynne przejście */
-            display: flex; /* Flexbox do centrowania */
-            justify-content: center; /* W poziomie */
-            align-items: center; /* W pionie */
-            color: black; /* Kolor tekstu w opisie */
-            text-align: center; /* Wyśrodkowanie tekstu */
-        }
-
-        .widget:hover .image-overlay {
-            opacity: 1; /* W pełni widoczne po najechaniu */
-        }
-
-        .widget img {
-            max-width: 100%; /* Ustal maksymalną szerokość */
-            height: auto; /* Automatyczna wysokość */
-        }
-
-        /* Stylizacja opisu, który ma być widoczny po najechaniu */
-        .widget p {
-            opacity: 1; /* Domyślnie widoczny */
-            transition: opacity 0.5s ease; /* Płynne przejście */
-        }
-
-        .widget:hover p {
-            opacity: 0; /* Znika tekst */
-        }
     </style>
 </head>
 <body>
@@ -139,101 +74,129 @@
     </section>
     <section id="computer-components">
         <h2>Podzespoły Komputerowe</h2>
-        <div class="widgets-container">
-            <div class="widget">
-                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/CPU.jpg" alt="Procesor (CPU)">
-                <h3>Procesor (CPU)</h3>
+        <ul>
+            <li>
+                <strong>Procesor (CPU)</strong>
                 <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
                 <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych.</p>
-                </div>
-            </div>
-            <div class="widget">
-                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/MAINBOARD.jpg" alt="Płyta główna">
-                <h3>Płyta główna</h3>
+            </li>
+            <li>
+                <strong>Płyta główna</strong>
                 <p>Podstawa, na której zamontowane są inne podzespoły. 
                 <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <p>Podstawa, na której zamontowane są inne podzespoły.</p>
-                </div>
-            </div>
-            <div class="widget">
-                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/RAM.jpg" alt="Pamięć RAM">
-                <h3>Pamięć RAM</h3>
+            </li>
+            <li>
+                <strong>Pamięć RAM</strong>
                 <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
                 <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <p>Pamięć operacyjna, która przechowuje dane tymczasowe.</p>
-                </div>
-            </div>
-            <div class="widget">
-                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/GPU.jpg" alt="Karta graficzna (GPU)">
-                <h3>Karta graficzna (GPU)</h3>
-                <p>Odpowiada za rendering grafiki i wydajność wizualną. 
-                <a href="https://www.nvidia.com/en-us/geforce/graphics-cards/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <p>Odpowiada za rendering grafiki i wydajność wizualną.</p>
-                </div>
-            </div>
-        </div>
+            </li>
+            <li>
+                <strong>Karta graficzna (GPU)</strong>
+                <p>Odpowiada za rendering grafiki. 
+                <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
+            </li>
+            <li>
+                <strong>Dysk twardy (HDD/SSD)</strong>
+                <p>Urządzenie do przechowywania danych. SSD jest szybszy niż HDD. 
+                <a href="https://www.pcgamer.com/ssd-vs-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="mini-guides">
+        <h2>Mini Poradniki</h2>
+        <article>
+            <h3>Jak zacząć programować w Pythonie?</h3>
+            <p>Python to jeden z najłatwiejszych języków do nauki. Możesz zacząć od zainstalowania go na swoim komputerze i korzystania z takich zasobów jak Codecademy czy freeCodeCamp. 
+            <a href="https://www.codecademy.com/learn/learn-python-3" target="_blank">Poradnik na Codecademy</a>.</p>
+        </article>
+        <article>
+            <h3>Wprowadzenie do HTML i CSS</h3>
+            <p>HTML to język znaczników, który jest używany do tworzenia struktury stron internetowych, podczas gdy CSS pozwala na stylizację tych stron. 
+            <a href="https://www.freecodecamp.org/learn/responsive-web-design/#basic-html-and-html5" target="_blank">Poradnik na freeCodeCamp</a>.</p>
+        </article>
+    </section>
+
+    <section id="tools-review">
+        <h2>Przegląd Narzędzi</h2>
+        <p>Oto kilka popularnych narzędzi, które warto znać:</p>
+        <ul>
+            <li><strong>Visual Studio Code</strong> - świetny edytor kodu z wieloma rozszerzeniami. 
+            <a href="https://code.visualstudio.com/" target="_blank">Oficjalna strona</a>.</li>
+            <li><strong>Git</strong> - system kontroli wersji, który pozwala na śledzenie zmian w kodzie. 
+            <a href="https://git-scm.com/doc" target="_blank">Dokumentacja Gita</a>.</li>
+            <li><strong>Postman</strong> - narzędzie do testowania API. 
+            <a href="https://www.postman.com/" target="_blank">Oficjalna strona</a>.</li>
+        </ul>
     </section>
 </main>
 
+<!-- Wyskakujące okno kontaktowe -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
+    </div>
+</div>
+
+<footer style="background-color: #222; color: white; text-align: center; padding: 10px;">
+    <p>&copy; 2024 Misiek Industries</p>
+    <p>
+        <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
+        <a href="#terms" style="color: #ddd;">Warunki Użytkowania</a> |
+        <a href="#cookies" style="color: #ddd;">Pliki Cookies</a>
+    </p>
+</footer>
+
 <script>
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const audio = document.getElementById('audio');
-    const songTitle = document.getElementById('songTitle');
-    const toggleButton = document.getElementById('toggleButton');
-    const musicPlayer = document.getElementById('musicPlayer');
-    const hideButton = document.getElementById('hideButton');
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const audio = document.getElementById("audio");
+    const songTitle = document.getElementById("songTitle");
+    const toggleButton = document.getElementById("toggleButton");
+    const hideButton = document.getElementById("hideButton");
+    const musicPlayer = document.getElementById("musicPlayer");
+    const musicPlayerContainer = document.getElementById("musicPlayerContainer");
 
-    let isPlaying = false;
-
-    playPauseBtn.addEventListener('click', () => {
-        if (isPlaying) {
-            audio.pause();
-            playPauseBtn.innerHTML = `
-                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <circle cx="15" cy="15" r="15" fill="white" />
-                    <polygon points="12,10 12,20 20,15" fill="black" />
-                </svg>`;
-        } else {
+    playPauseBtn.onclick = function() {
+        if (audio.paused) {
             audio.play();
-            playPauseBtn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-                    <circle cx="15" cy="15" r="15" fill="white" />
-                    <rect x="12" y="10" width="4" height="10" fill="black" />
-                    <rect x="18" y="10" width="4" height="10" fill="black" />
-                </svg>`;
-        }
-        isPlaying = !isPlaying;
-    });
-
-    toggleButton.addEventListener('click', () => {
-        if (musicPlayer.style.display === "none") {
-            musicPlayer.style.display = "block";
-            musicPlayer.classList.add('show');
-            musicPlayer.classList.remove('hide');
-            toggleButton.innerHTML = "&#9664;"; // Zmień na strzałkę w lewo
+            playPauseBtn.innerHTML = '<svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><rect x="11" y="10" width="3" height="10" fill="black" /><rect x="16" y="10" width="3" height="10" fill="black" /></svg>';
+            songTitle.textContent = " - Travis Scott (Odtwarzanie...";
         } else {
-            musicPlayer.classList.add('hide');
-            musicPlayer.classList.remove('show');
-            setTimeout(() => {
-                musicPlayer.style.display = "none";
-            }, 500);
-            toggleButton.innerHTML = "&#9654;"; // Zmień na strzałkę w prawo
+            audio.pause();
+            playPauseBtn.innerHTML = '<svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><polygon points="12,10 12,20 20,15" fill="black" /></svg>';
+            songTitle.textContent = " - Travis Scott (Wstrzymane)";
         }
-    });
+    };
 
-    hideButton.addEventListener('click', () => {
-        musicPlayer.classList.add('hide');
-        musicPlayer.classList.remove('show');
+    // Funkcja do przełączania widoczności odtwarzacza
+    toggleButton.onclick = function() {
+        if (musicPlayer.style.display === "none") {
+            musicPlayer.style.display = "block"; // Pokazuje odtwarzacz
+            setTimeout(() => {
+                musicPlayer.classList.add("show");
+                musicPlayer.classList.remove("hide");
+            }, 0);
+            toggleButton.innerHTML = '&#9664;'; // Zmień ikonę na strzałkę w lewo
+        } else {
+            musicPlayer.classList.add("hide");
+            musicPlayer.classList.remove("show");
+            setTimeout(() => {
+                musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
+            }, 300); // Czas odpowiada czasowi animacji
+            toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
+        }
+    };
+
+    // Funkcja do wsuwania odtwarzacza
+    hideButton.onclick = function() {
+        musicPlayer.classList.add("hide");
+        musicPlayer.classList.remove("show");
         setTimeout(() => {
-            musicPlayer.style.display = "none";
-        }, 500);
-        toggleButton.innerHTML = "&#9654;"; // Zmień na strzałkę w prawo
-    });
+            musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
+        }, 300); // Czas odpowiada czasowi animacji
+        toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
+    };
 </script>
 
 </body>
