@@ -93,7 +93,7 @@ section {
 }
 
 .widget:hover img {
-    opacity: 0.2; /* Rozjaśnienie zdjęcia na 20% przy najechaniu */
+    opacity: 0.5; /* Przyciemnienie zdjęcia na 50% przy najechaniu */
 }
 
 /* Efekty najechania */
@@ -109,7 +109,7 @@ section {
     opacity: 0; /* Początkowo niewidoczne */
     transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
     text-align: center; /* Wyśrodkowanie tekstu */
-    color: black; /* Kolor tekstu na czarny */
+    color: white; /* Kolor tekstu na biały */
 }
 
 .widget:hover .widget-content {
@@ -118,7 +118,7 @@ section {
 
 .widget h3 {
     margin: 0 0 10px; /* Odstęp od tytułu */
-    color: #000; /* Kolor tytułu na czarny */
+    color: white; /* Kolor tytułu na biały */
 }
 
 .widget p {
