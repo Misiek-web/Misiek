@@ -8,16 +8,21 @@ body {
     min-height: 100vh;
 }
 
-/* Nagłówek z gradientem */
+/* Nagłówek */
 header {
-    background: linear-gradient(to right, #f97316, #f43f5e);
+    display: flex;
+    justify-content: space-between; /* Rozdziela logo i nawigację */
+    align-items: center;
     padding: 20px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
+    background: linear-gradient(to right, #f97316, #f43f5e);
 }
 
-/* Nawigacja */
+h1 {
+    margin-left: 20px; /* Margines od lewej strony */
+    font-size: 24px;
+    color: white;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -47,7 +52,6 @@ nav ul li a {
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Kolor tła na hover */
     color: #f97316; /* Zmiana koloru tekstu na hover */
-    border-radius: 5px; /* Zaokrąglenie rogów na hover */
 }
 
 /* Główna zawartość */
@@ -55,8 +59,6 @@ main {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px; /* Odstęp od stopki */
-    background-color: #2a2a2a; /* Lekko jaśniejsze tło dla treści */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
 }
 
 section {
@@ -72,7 +74,6 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
 }
 
 /* Stylizacja linków */
@@ -85,15 +86,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Odtwarzacz muzyki */
-#musicPlayer {
-    background-color: rgba(0, 0, 0, 0.7); /* Lekko przezroczyste tło */
-    color: white; /* Kolor tekstu */
-    padding: 10px;
-    border-radius: 10px; /* Zaokrąglenie rogów */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień dla lepszego efektu */
-}
-
+/* Stylizacja przycisku Play/Pause */
 #playPauseBtn {
     background-color: transparent; /* Bez tła */
     border: none; /* Bez ramki */
@@ -110,19 +103,50 @@ footer a:hover {
     background-color: rgba(0, 0, 0, 0.2); /* Efekt najechania */
 }
 
-/* Responsywność dla urządzeń mobilnych */
-@media (max-width: 600px) {
-    header {
-        padding: 10px;
-    }
-    
-    nav ul li {
-        display: block;
-        text-align: center;
-        margin: 5px 0;
-    }
-    
-    main {
-        padding: 10px;
-    }
+/* Wysuwany panel z odtwarzaczem */
+#musicPlayerContainer {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#toggleButton {
+    background-color: #f97316;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    transition: background-color 0.3s;
+}
+
+#toggleButton:hover {
+    background-color: #f43f5e;
+}
+
+#musicPlayer {
+    display: none; /* Domyślnie ukryty */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    margin-left: -200px; /* Panel będzie wysunięty na lewo od ekranu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#playPauseBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#playPauseBtn svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* Wysunięty panel */
+#musicPlayer.open {
+    display: block;
 }
