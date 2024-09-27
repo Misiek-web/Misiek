@@ -77,7 +77,6 @@
             opacity: 0; /* Początkowo niewidoczne */
             transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
             text-align: center; /* Wyśrodkowanie tekstu */
-            color: white; /* Ustaw kolor tekstu na biały */
         }
 
         .widget:hover .widget-content {
@@ -91,7 +90,31 @@
 
         .widget p {
             margin: 0; /* Usunięcie domyślnego marginesu */
-            color: white; /* Ustaw kolor tekstu na biały */
+        }
+
+        /* Nowy widget na całą stronę */
+        .full-width-widget {
+            width: 100%; /* Cała szerokość */
+            border-radius: 10px; /* Zaokrąglenie */
+            margin: 20px 0; /* Margines dla widgetu */
+            background-color: #2c3e50; /* Kolor tła */
+            color: white; /* Kolor tekstu */
+            text-align: center; /* Wyśrodkowanie tekstu */
+            padding: 20px; /* Padding wewnętrzny */
+            cursor: pointer; /* Kursor wskazuje, że widget jest klikalny */
+            transition: transform 0.3s ease; /* Efekt powiększenia przy najechaniu */
+        }
+
+        .full-width-widget:hover {
+            transform: scale(1.05); /* Powiększa widget przy najechaniu */
+        }
+
+        .full-width-widget h3 {
+            margin: 0 0 10px; /* Odstęp od tytułu */
+        }
+
+        .full-width-widget p {
+            margin: 0; /* Usunięcie domyślnego marginesu */
         }
     </style>
 </head>
@@ -129,6 +152,7 @@
         <h2>Pozdrawiam</h2>
         <p>Najlepsza strona na świecie, pociłem się przy niej i nocki zawalałem.</p>
     </section>
+
     <section id="computer-components">
         <h2>Podzespoły Komputerowe</h2>
         <div class="widgets-container">
@@ -153,95 +177,95 @@
                     <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe.</p>
                 </div>
             </a>
-            <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" class="widget">
+            <a href="https://www.seagate.com/products/hard-drives/ssd/" class="widget">
+                <img src="ssd_image.jpg" alt="Dysk SSD">
+                <div class="widget-content">
+                    <h3>Dysk SSD</h3>
+                    <p>Dyski SSD są szybsze i bardziej wydajne niż tradycyjne dyski HDD.</p>
+                </div>
+            </a>
+            <a href="https://www.nvidia.com/en-us/geforce/graphics-cards/" class="widget">
                 <img src="gpu_image.jpg" alt="Karta graficzna (GPU)">
                 <div class="widget-content">
                     <h3>Karta graficzna (GPU)</h3>
-                    <p>Odpowiada za rendering grafiki.</p>
+                    <p>Odpowiedzialna za renderowanie grafiki i wideo.</p>
                 </div>
             </a>
-            <a href="https://www.howtogeek.com/652276/what-is-the-difference-between-ssd-and-hdd/" class="widget">
-                <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)">
+            <a href="https://www.coolermaster.com/catalog/cases/" class="widget">
+                <img src="case_image.jpg" alt="Obudowa">
                 <div class="widget-content">
-                    <h3>Dysk twardy (HDD/SSD)</h3>
-                    <p>Przechowuje dane na stałe.</p>
+                    <h3>Obudowa</h3>
+                    <p>Obudowa chroni i utrzymuje wszystkie podzespoły w jednym miejscu.</p>
                 </div>
             </a>
         </div>
     </section>
+
+    <!-- Nowy widget na całą stronę -->
+    <section id="tutorials">
+        <div class="full-width-widget" onclick="window.open('https://www.codecademy.com/learn/learn-python-3', '_blank')">
+            <h3>Jak zacząć programować w Pythonie?</h3>
+            <p>Dowiedz się, jak rozpocząć swoją przygodę z programowaniem w Pythonie!</p>
+        </div>
+        <div class="full-width-widget" onclick="window.open('https://www.freecodecamp.org/learn/responsive-web-design/#basic-html-and-html5', '_blank')">
+            <h3>Wprowadzenie do HTML i CSS</h3>
+            <p>Poznaj podstawy tworzenia stron internetowych!</p>
+        </div>
+        <div class="full-width-widget" onclick="window.open('https://www.codecademy.com/learn/learn-python-3', '_blank')">
+            <h3>Przegląd Narzędzi</h3>
+            <p>Odkryj narzędzia, które pomogą Ci w programowaniu.</p>
+        </div>
+    </section>
+
 </main>
 
-<!-- Modal kontaktowy -->
-<div id="contactModal" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 100;">
-    <div style="background-color: white; margin: 15% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 500px;">
-        <h2>Kontakt</h2>
-        <p>Proszę wpisać wiadomość:</p>
-        <textarea rows="4" style="width: 100%;"></textarea>
-        <button style="margin-top: 10px;">Wyślij</button>
-        <button style="float: right; margin-top: -30px; background: none; border: none; cursor: pointer;" onclick="document.getElementById('contactModal').style.display='none'">✖</button>
-    </div>
-</div>
-
-<footer style="background-color: #34495e; color: white; text-align: center; padding: 10px;">
-    <p>© 2024 Misiek Industries. Wszelkie prawa zastrzeżone.</p>
+<footer>
+    <p>&copy; 2024 Misiek Industries. Wszelkie prawa zastrzeżone.</p>
 </footer>
 
 <script>
-    document.getElementById('toggleButton').onclick = function() {
-        var player = document.getElementById('musicPlayer');
-        var container = document.getElementById('musicPlayerContainer');
-        var isVisible = player.style.display === 'block';
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playIcon = document.getElementById('playIcon');
+    const songTitle = document.getElementById('songTitle');
+    const toggleButton = document.getElementById('toggleButton');
+    const musicPlayer = document.getElementById('musicPlayer');
+    const musicPlayerContainer = document.getElementById('musicPlayerContainer');
+    const hideButton = document.getElementById('hideButton');
 
-        if (isVisible) {
-            player.classList.remove('show');
-            player.classList.add('hide');
-            setTimeout(function() {
-                player.style.display = 'none'; // Ukryj po animacji
-            }, 300);
-            this.innerHTML = '&#9654;'; // Zmień na przycisk odtwarzania
-        } else {
-            player.style.display = 'block';
-            setTimeout(function() {
-                player.classList.add('show');
-                player.classList.remove('hide');
-            }, 0);
-            this.innerHTML = '&#9664;'; // Zmień na przycisk pauzy
-        }
-    };
-
-    document.getElementById('playPauseBtn').onclick = function() {
-        var audio = document.getElementById('audio');
-        var playIcon = document.getElementById('playIcon');
-        
+    playPauseBtn.addEventListener('click', function() {
         if (audio.paused) {
             audio.play();
-            playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="white" />'; // Zmiana na ikonkę pauzy
+            playIcon.innerHTML = '<polygon points="10,10 10,20 20,15" fill="black" />'; // Zmiana na pauzę
+            songTitle.innerHTML = " - Travis Scott"; // Tytuł utworu
         } else {
             audio.pause();
-            playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="black" />'; // Zmiana na ikonkę odtwarzania
+            playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="black" />'; // Zmiana na odtwarzanie
+            songTitle.innerHTML = ""; // Usunięcie tytułu utworu
         }
-    };
+    });
 
-    document.getElementById('hideButton').onclick = function() {
-        var player = document.getElementById('musicPlayer');
-        player.classList.remove('show');
-        player.classList.add('hide');
-        setTimeout(function() {
-            player.style.display = 'none'; // Ukryj po animacji
-        }, 300);
-        document.getElementById('toggleButton').innerHTML = '&#9654;'; // Zmień na przycisk odtwarzania
-    };
-
-    document.getElementById('contactLink').onclick = function() {
-        document.getElementById('contactModal').style.display = 'block';
-    };
-
-    // Kliknięcie poza modalem, aby go zamknąć
-    window.onclick = function(event) {
-        if (event.target === document.getElementById('contactModal')) {
-            document.getElementById('contactModal').style.display = 'none';
+    toggleButton.addEventListener('click', function() {
+        if (musicPlayer.style.display === "none" || musicPlayer.style.display === "") {
+            musicPlayer.style.display = "block";
+            musicPlayer.classList.add('show');
+        } else {
+            musicPlayer.classList.remove('show');
+            musicPlayer.classList.add('hide');
+            setTimeout(() => {
+                musicPlayer.style.display = "none";
+            }, 300); // Czeka na zakończenie animacji
         }
-    };
+    });
+
+    hideButton.addEventListener('click', function() {
+        musicPlayer.classList.remove('show');
+        musicPlayer.classList.add('hide');
+        setTimeout(() => {
+            musicPlayer.style.display = "none";
+        }, 300); // Czeka na zakończenie animacji
+    });
 </script>
+
 </body>
 </html>
