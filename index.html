@@ -79,25 +79,27 @@
             display: flex; /* Flexbox do centrowania */
             justify-content: center; /* W poziomie */
             align-items: center; /* W pionie */
+            color: black; /* Kolor tekstu w opisie */
+            text-align: center; /* Wyśrodkowanie tekstu */
         }
 
         .widget:hover .image-overlay {
             opacity: 1; /* W pełni widoczne po najechaniu */
         }
 
-        .widget:hover h3, .widget:hover p {
-            opacity: 0; /* Znika tekst */
+        .widget img {
+            max-width: 100%; /* Ustal maksymalną szerokość */
+            height: auto; /* Automatyczna wysokość */
+        }
+
+        /* Stylizacja opisu, który ma być widoczny po najechaniu */
+        .widget p {
+            opacity: 1; /* Domyślnie widoczny */
             transition: opacity 0.5s ease; /* Płynne przejście */
         }
 
-        .widget img {
-            max-width: 100px; /* Ustal maksymalną szerokość */
-            max-height: 100px; /* Ustal maksymalną wysokość */
-            display: none; /* Domyślnie ukryte */
-        }
-
-        .widget:hover img {
-            display: block; /* Pokaż obrazek po najechaniu */
+        .widget:hover p {
+            opacity: 0; /* Znika tekst */
         }
     </style>
 </head>
@@ -137,117 +139,101 @@
     </section>
     <section id="computer-components">
         <h2>Podzespoły Komputerowe</h2>
-          <div class="widgets-container">
-              <div class="widget">
+        <div class="widgets-container">
+            <div class="widget">
+                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/CPU.jpg" alt="Procesor (CPU)">
                 <h3>Procesor (CPU)</h3>
                 <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
                 <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
                 <div class="image-overlay">
-                    <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/CPU.jpg" alt="Procesor (CPU)"> <!-- Zmień na odpowiednie zdjęcie -->
+                    <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych.</p>
                 </div>
             </div>
             <div class="widget">
+                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/MAINBOARD.jpg" alt="Płyta główna">
                 <h3>Płyta główna</h3>
                 <p>Podstawa, na której zamontowane są inne podzespoły. 
                 <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
                 <div class="image-overlay">
-                    <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/MAINBOARD.jpg" alt="Płyta główna"> <!-- Zmień na odpowiednie zdjęcie -->
+                    <p>Podstawa, na której zamontowane są inne podzespoły.</p>
                 </div>
             </div>
             <div class="widget">
+                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/RAM.jpg" alt="Pamięć RAM">
                 <h3>Pamięć RAM</h3>
                 <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
                 <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
                 <div class="image-overlay">
-                    <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/RAM.jpg" alt="Pamięć RAM"> <!-- Zmień na odpowiednie zdjęcie -->
+                    <p>Pamięć operacyjna, która przechowuje dane tymczasowe.</p>
                 </div>
             </div>
             <div class="widget">
+                <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/GPU.jpg" alt="Karta graficzna (GPU)">
                 <h3>Karta graficzna (GPU)</h3>
-                <p>Odpowiada za rendering grafiki. 
-                <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
+                <p>Odpowiada za rendering grafiki i wydajność wizualną. 
+                <a href="https://www.nvidia.com/en-us/geforce/graphics-cards/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
                 <div class="image-overlay">
-                    <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/GPU.jpg" alt="Karta graficzna (GPU)"> <!-- Zmień na odpowiednie zdjęcie -->
-                </div>
-            </div>
-            <div class="widget">
-                <h3>Dysk twardy (HDD/SSD)</h3>
-                <p>Dyski twarde to urządzenia do przechowywania danych, SSD jest szybszy od HDD. 
-                <a href="https://www.pcgamer.com/what-is-the-difference-between-ssd-and-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
-                <div class="image-overlay">
-                    <img src="https://github.com/Misiek-web/Misiek/blob/236f0815f790d92ede4623709769854d09e95f4e/HDD.jpg" alt="Dysk twardy (HDD/SSD)"> <!-- Zmień na odpowiednie zdjęcie -->
+                    <p>Odpowiada za rendering grafiki i wydajność wizualną.</p>
                 </div>
             </div>
         </div>
     </section>
 </main>
 
-<div id="contactModal" style="display: none;">
-    <div style="background: white; padding: 20px; border-radius: 10px;">
-        <h2>Kontakt</h2>
-        <button onclick="document.getElementById('contactModal').style.display='none'" style="background: none; border: none; cursor: pointer; font-size: 24px;">&times;</button>
-        <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
-    </div>
-</div>
-
-<footer style="background-color: #222; color: white; text-align: center; padding: 10px;">
-    <p>&copy; 2024 Misiek Industries</p>
-    <p>
-        <a href="#privacy" style="color: #ddd;">Polityka Prywatności</a> |
-        <a href="#terms" style="color: #ddd;">Warunki Użytkowania</a> |
-        <a href="#cookies" style="color: #ddd;">Pliki Cookies</a>
-    </p>
-</footer>
-
 <script>
-    const playPauseBtn = document.getElementById("playPauseBtn");
-    const audio = document.getElementById("audio");
-    const songTitle = document.getElementById("songTitle");
-    const toggleButton = document.getElementById("toggleButton");
-    const hideButton = document.getElementById("hideButton");
-    const musicPlayer = document.getElementById("musicPlayer");
-    const musicPlayerContainer = document.getElementById("musicPlayerContainer");
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const audio = document.getElementById('audio');
+    const songTitle = document.getElementById('songTitle');
+    const toggleButton = document.getElementById('toggleButton');
+    const musicPlayer = document.getElementById('musicPlayer');
+    const hideButton = document.getElementById('hideButton');
 
-    playPauseBtn.onclick = function() {
-        if (audio.paused) {
-            audio.play();
-            playPauseBtn.innerHTML = '<svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><rect x="11" y="10" width="3" height="10" fill="black" /><rect x="16" y="10" width="3" height="10" fill="black" /></svg>';
-            songTitle.textContent = " - Travis Scott (Odtwarzanie..."; 
-        } else {
+    let isPlaying = false;
+
+    playPauseBtn.addEventListener('click', () => {
+        if (isPlaying) {
             audio.pause();
-            playPauseBtn.innerHTML = '<svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><polygon points="12,10 12,20 20,15" fill="black" /></svg>';
-            songTitle.textContent = " - Travis Scott (Wstrzymane)";
-        }
-    };
-
-    // Funkcja do przełączania widoczności odtwarzacza
-    toggleButton.onclick = function() {
-        if (musicPlayer.style.display === "none") {
-            musicPlayer.style.display = "block"; // Pokazuje odtwarzacz
-            setTimeout(() => {
-                musicPlayer.classList.add("show");
-                musicPlayer.classList.remove("hide");
-            }, 0);
-            toggleButton.innerHTML = '&#9664;'; // Zmień ikonę na strzałkę w lewo
+            playPauseBtn.innerHTML = `
+                <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                    <circle cx="15" cy="15" r="15" fill="white" />
+                    <polygon points="12,10 12,20 20,15" fill="black" />
+                </svg>`;
         } else {
-            musicPlayer.classList.add("hide");
-            musicPlayer.classList.remove("show");
-            setTimeout(() => {
-                musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
-            }, 300); // Czas odpowiada czasowi animacji
-            toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
+            audio.play();
+            playPauseBtn.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                    <circle cx="15" cy="15" r="15" fill="white" />
+                    <rect x="12" y="10" width="4" height="10" fill="black" />
+                    <rect x="18" y="10" width="4" height="10" fill="black" />
+                </svg>`;
         }
-    };
+        isPlaying = !isPlaying;
+    });
 
-    // Funkcja do wsuwania odtwarzacza
-    hideButton.onclick = function() {
-        musicPlayer.classList.add("hide");
-        musicPlayer.classList.remove("show");
+    toggleButton.addEventListener('click', () => {
+        if (musicPlayer.style.display === "none") {
+            musicPlayer.style.display = "block";
+            musicPlayer.classList.add('show');
+            musicPlayer.classList.remove('hide');
+            toggleButton.innerHTML = "&#9664;"; // Zmień na strzałkę w lewo
+        } else {
+            musicPlayer.classList.add('hide');
+            musicPlayer.classList.remove('show');
+            setTimeout(() => {
+                musicPlayer.style.display = "none";
+            }, 500);
+            toggleButton.innerHTML = "&#9654;"; // Zmień na strzałkę w prawo
+        }
+    });
+
+    hideButton.addEventListener('click', () => {
+        musicPlayer.classList.add('hide');
+        musicPlayer.classList.remove('show');
         setTimeout(() => {
-            musicPlayer.style.display = "none"; // Ukrywa odtwarzacz
-        }, 300); // Czas odpowiada czasowi animacji
-        toggleButton.innerHTML = '&#9654;'; // Zmień ikonę na strzałkę w prawo
-    };
+            musicPlayer.style.display = "none";
+        }, 500);
+        toggleButton.innerHTML = "&#9654;"; // Zmień na strzałkę w prawo
+    });
 </script>
 
 </body>
