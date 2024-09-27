@@ -36,6 +36,69 @@
             opacity: 0;
             transform: translateY(20px); /* Znowu w dół */
         }
+
+        /* Stylizacja kontenera na widgety */
+        .widgets-container {
+            display: flex; /* Flexbox do ułożenia widgetów obok siebie */
+            flex-wrap: wrap; /* Pozwala na przełamywanie wierszy */
+            justify-content: space-between; /* Rozdziela widgety */
+            gap: 20px; /* Odstęp między widgetami */
+            margin: 20px; /* Margines dla całego kontenera */
+        }
+
+        /* Stylizacja widgetów */
+        .widget {
+            background-color: #2c3e50; /* Ciemne tło */
+            color: white; /* Kolor tekstu */
+            border-radius: 10px; /* Zaokrąglenie */
+            padding: 20px; /* Wewnętrzny margines */
+            width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
+            height: 200px; /* Wyższa wysokość */
+            position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
+            overflow: hidden; /* Ukrywa nadmiarowe elementy */
+        }
+
+        .widget h3 {
+            margin: 0 0 10px; /* Odstęp od tytułu */
+            color: #ecf0f1; /* Kolor tytułu */
+        }
+
+        .widget p {
+            margin: 0; /* Usunięcie domyślnego marginesu */
+        }
+
+        .image-overlay {
+            position: absolute; /* Pozycjonowanie bez względu na inne elementy */
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: rgba(255, 255, 255, 0.8); /* Lekka przezroczystość */
+            opacity: 0; /* Zaczynamy od niewidocznego */
+            transition: opacity 0.5s ease; /* Płynne przejście */
+            display: flex; /* Flexbox do centrowania */
+            justify-content: center; /* W poziomie */
+            align-items: center; /* W pionie */
+        }
+
+        .widget:hover .image-overlay {
+            opacity: 1; /* W pełni widoczne po najechaniu */
+        }
+
+        .widget:hover h3, .widget:hover p {
+            opacity: 0; /* Znika tekst */
+            transition: opacity 0.5s ease; /* Płynne przejście */
+        }
+
+        .widget img {
+            max-width: 100px; /* Ustal maksymalną szerokość */
+            max-height: 100px; /* Ustal maksymalną wysokość */
+            display: none; /* Domyślnie ukryte */
+        }
+
+        .widget:hover img {
+            display: block; /* Pokaż obrazek po najechaniu */
+        }
     </style>
 </head>
 <body>
@@ -74,67 +137,55 @@
     </section>
     <section id="computer-components">
         <h2>Podzespoły Komputerowe</h2>
-        <ul>
-            <li>
-                <strong>Procesor (CPU)</strong>
+        <div class="widgets-container">
+            <div class="widget">
+                <h3>Procesor (CPU)</h3>
                 <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
                 <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Płyta główna</strong>
+                <div class="image-overlay">
+                    <img src="cpu_image.jpg" alt="Procesor (CPU)"> <!-- Zmień na odpowiednie zdjęcie -->
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Płyta główna</h3>
                 <p>Podstawa, na której zamontowane są inne podzespoły. 
                 <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Pamięć RAM</strong>
+                <div class="image-overlay">
+                    <img src="motherboard_image.jpg" alt="Płyta główna"> <!-- Zmień na odpowiednie zdjęcie -->
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Pamięć RAM</h3>
                 <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
                 <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Karta graficzna (GPU)</strong>
+                <div class="image-overlay">
+                    <img src="ram_image.jpg" alt="Pamięć RAM"> <!-- Zmień na odpowiednie zdjęcie -->
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Karta graficzna (GPU)</h3>
                 <p>Odpowiada za rendering grafiki. 
                 <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Dysk twardy (HDD/SSD)</strong>
-                <p>Urządzenie do przechowywania danych. SSD jest szybszy niż HDD. 
-                <a href="https://www.pcgamer.com/ssd-vs-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-        </ul>
-    </section>
-
-    <section id="mini-guides">
-        <h2>Mini Poradniki</h2>
-        <article>
-            <h3>Jak zacząć programować w Pythonie?</h3>
-            <p>Python to jeden z najłatwiejszych języków do nauki. Możesz zacząć od zainstalowania go na swoim komputerze i korzystania z takich zasobów jak Codecademy czy freeCodeCamp. 
-            <a href="https://www.codecademy.com/learn/learn-python-3" target="_blank">Poradnik na Codecademy</a>.</p>
-        </article>
-        <article>
-            <h3>Wprowadzenie do HTML i CSS</h3>
-            <p>HTML to język znaczników, który jest używany do tworzenia struktury stron internetowych, podczas gdy CSS pozwala na stylizację tych stron. 
-            <a href="https://www.freecodecamp.org/learn/responsive-web-design/#basic-html-and-html5" target="_blank">Poradnik na freeCodeCamp</a>.</p>
-        </article>
-    </section>
-
-    <section id="tools-review">
-        <h2>Przegląd Narzędzi</h2>
-        <p>Oto kilka popularnych narzędzi, które warto znać:</p>
-        <ul>
-            <li><strong>Visual Studio Code</strong> - świetny edytor kodu z wieloma rozszerzeniami. 
-            <a href="https://code.visualstudio.com/" target="_blank">Oficjalna strona</a>.</li>
-            <li><strong>Git</strong> - system kontroli wersji, który pozwala na śledzenie zmian w kodzie. 
-            <a href="https://git-scm.com/doc" target="_blank">Dokumentacja Gita</a>.</li>
-            <li><strong>Postman</strong> - narzędzie do testowania API. 
-            <a href="https://www.postman.com/" target="_blank">Oficjalna strona</a>.</li>
-        </ul>
+                <div class="image-overlay">
+                    <img src="gpu_image.jpg" alt="Karta graficzna (GPU)"> <!-- Zmień na odpowiednie zdjęcie -->
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Dysk twardy (HDD/SSD)</h3>
+                <p>Dyski twarde to urządzenia do przechowywania danych, SSD jest szybszy od HDD. 
+                <a href="https://www.pcgamer.com/what-is-the-difference-between-ssd-and-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
+                <div class="image-overlay">
+                    <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)"> <!-- Zmień na odpowiednie zdjęcie -->
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 
-<!-- Wyskakujące okno kontaktowe -->
-<div id="contactModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
+<div id="contactModal" style="display: none;">
+    <div style="background: white; padding: 20px; border-radius: 10px;">
+        <h2>Kontakt</h2>
+        <button onclick="document.getElementById('contactModal').style.display='none'" style="background: none; border: none; cursor: pointer; font-size: 24px;">&times;</button>
         <p>Skontaktuj się ze mną: <a href="mailto:skarpetyawisnietwojstarykisnie@gmail.com">skarpetyawisnietwojstarykisnie@gmail.com</a></p>
     </div>
 </div>
@@ -161,7 +212,7 @@
         if (audio.paused) {
             audio.play();
             playPauseBtn.innerHTML = '<svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><rect x="11" y="10" width="3" height="10" fill="black" /><rect x="16" y="10" width="3" height="10" fill="black" /></svg>';
-            songTitle.textContent = " - Travis Scott (Odtwarzanie...";
+            songTitle.textContent = " - Travis Scott (Odtwarzanie..."; 
         } else {
             audio.pause();
             playPauseBtn.innerHTML = '<svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><polygon points="12,10 12,20 20,15" fill="black" /></svg>';
