@@ -27,19 +27,11 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex; /* Umożliwia łatwe rozmieszczenie elementów */
 }
 
 nav ul li {
-    display: inline;
     margin-right: 15px;
-}
-
-nav ul li a.active {
-    background-color: rgba(0, 255, 255, 0.5); /* Aqua z 50% przezroczystością */
-    color: black; /* Kolor tekstu dla aktywnej zakładki */
-    font-weight: bold; /* Pogrubienie tekstu */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    padding: 5px 10px; /* Wewnętrzny odstęp */
 }
 
 nav ul li a {
@@ -47,6 +39,13 @@ nav ul li a {
     text-decoration: none;
     padding: 10px;
     transition: background-color 0.3s, color 0.3s; /* Animacja przejścia */
+}
+
+nav ul li a.active {
+    background-color: rgba(0, 255, 255, 0.5); /* Aqua z 50% przezroczystością */
+    color: black; /* Kolor tekstu dla aktywnej zakładki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    border-radius: 5px; /* Zaokrąglenie rogów */
 }
 
 nav ul li a:hover {
@@ -198,4 +197,19 @@ footer a:hover {
 /* Wysunięty panel */
 #musicPlayer.open {
     display: block;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .widget {
+        width: calc(100% - 10px); /* Widgety zajmują całą szerokość na małych ekranach */
+    }
+
+    nav ul li {
+        margin-right: 10px; /* Mniejszy margines dla mobilnych widoków */
+    }
+
+    h1 {
+        font-size: 20px; /* Mniejsza czcionka na małych ekranach */
+    }
 }
