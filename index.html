@@ -36,6 +36,25 @@
             opacity: 0;
             transform: translateY(20px); /* Znowu w dół */
         }
+
+        /* Stylizacja widgetów */
+        .widget {
+            border: 2px solid #007BFF; /* Kolor obramowania */
+            border-radius: 10px; /* Zaokrąglenie */
+            padding: 15px; /* Wewnętrzny margines */
+            margin: 10px 0; /* Odstęp między widgetami */
+            background-color: #f9f9f9; /* Kolor tła */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Cień */
+        }
+
+        .widget h3 {
+            margin: 0 0 10px; /* Odstęp od tytułu */
+            color: #007BFF; /* Kolor tytułu */
+        }
+
+        .widget p {
+            margin: 0; /* Usunięcie domyślnego marginesu */
+        }
     </style>
 </head>
 <body>
@@ -74,33 +93,31 @@
     </section>
     <section id="computer-components">
         <h2>Podzespoły Komputerowe</h2>
-        <ul>
-            <li>
-                <strong>Procesor (CPU)</strong>
-                <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
-                <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Płyta główna</strong>
-                <p>Podstawa, na której zamontowane są inne podzespoły. 
-                <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Pamięć RAM</strong>
-                <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
-                <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Karta graficzna (GPU)</strong>
-                <p>Odpowiada za rendering grafiki. 
-                <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-            <li>
-                <strong>Dysk twardy (HDD/SSD)</strong>
-                <p>Urządzenie do przechowywania danych. SSD jest szybszy niż HDD. 
-                <a href="https://www.pcgamer.com/ssd-vs-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
-            </li>
-        </ul>
+        <div class="widget">
+            <h3>Procesor (CPU)</h3>
+            <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
+            <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
+        </div>
+        <div class="widget">
+            <h3>Płyta główna</h3>
+            <p>Podstawa, na której zamontowane są inne podzespoły. 
+            <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
+        </div>
+        <div class="widget">
+            <h3>Pamięć RAM</h3>
+            <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
+            <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
+        </div>
+        <div class="widget">
+            <h3>Karta graficzna (GPU)</h3>
+            <p>Odpowiada za rendering grafiki. 
+            <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
+        </div>
+        <div class="widget">
+            <h3>Dysk twardy (HDD/SSD)</h3>
+            <p>Urządzenie do przechowywania danych. SSD jest szybszy niż HDD. 
+            <a href="https://www.pcgamer.com/ssd-vs-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
+        </div>
     </section>
 
     <section id="mini-guides">
@@ -161,7 +178,7 @@
         if (audio.paused) {
             audio.play();
             playPauseBtn.innerHTML = '<svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><rect x="11" y="10" width="3" height="10" fill="black" /><rect x="16" y="10" width="3" height="10" fill="black" /></svg>';
-            songTitle.textContent = " - Travis Scott (Odtwarzanie...";
+            songTitle.textContent = " - Travis Scott (Odtwarzanie..."; 
         } else {
             audio.pause();
             playPauseBtn.innerHTML = '<svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="15" fill="white" /><polygon points="12,10 12,20 20,15" fill="black" /></svg>';
