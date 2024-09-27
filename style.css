@@ -65,6 +65,66 @@ section {
     margin-bottom: 20px;
 }
 
+/* Stylizacja widgetów */
+.widgets-container {
+    display: flex; /* Flexbox do ułożenia widgetów obok siebie */
+    flex-wrap: wrap; /* Pozwala na przełamywanie wierszy */
+    justify-content: space-between; /* Rozdziela widgety */
+    gap: 20px; /* Odstęp między widgetami */
+    margin: 20px; /* Margines dla całego kontenera */
+}
+
+.widget {
+    position: relative; /* Umożliwia pozycjonowanie elementów wewnętrznych */
+    border-radius: 10px; /* Zaokrąglenie */
+    width: calc(50% - 10px); /* Ustal szerokość na 50% z uwzględnieniem marginesów */
+    overflow: hidden; /* Ukrywa nadmiarowe elementy */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    color: white; /* Kolor tekstu */
+    transition: transform 0.3s ease; /* Dodano efekt powiększenia przy najechaniu */
+    cursor: pointer; /* Kursor wskazuje, że widget jest klikalny */
+}
+
+.widget img {
+    width: 100%; /* Obrazek rozciąga się na szerokość widgetu */
+    height: auto; /* Automatyczna wysokość */
+    display: block; /* Usunięcie domyślnego marginesu */
+    transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
+}
+
+.widget:hover img {
+    opacity: 0.2; /* Rozjaśnienie zdjęcia na 20% przy najechaniu */
+}
+
+/* Efekty najechania */
+.widget:hover {
+    transform: scale(1.05); /* Powiększa widget przy najechaniu */
+}
+
+.widget-content {
+    position: absolute; /* Pozycjonowanie tekstu */
+    top: 50%; /* Wyrównanie do środka */
+    left: 50%; /* Wyrównanie do środka */
+    transform: translate(-50%, -50%); /* Wyśrodkowanie */
+    opacity: 0; /* Początkowo niewidoczne */
+    transition: opacity 0.3s ease; /* Animacja na zmianę przezroczystości */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    color: black; /* Kolor tekstu na czarny */
+}
+
+.widget:hover .widget-content {
+    opacity: 1; /* Widoczność tekstu przy najechaniu */
+}
+
+.widget h3 {
+    margin: 0 0 10px; /* Odstęp od tytułu */
+    color: #000; /* Kolor tytułu na czarny */
+}
+
+.widget p {
+    margin: 0; /* Usunięcie domyślnego marginesu */
+}
+
 /* Stopka */
 footer {
     background-color: #333;
@@ -133,17 +193,6 @@ footer a:hover {
     border-radius: 10px;
     margin-left: -200px; /* Panel będzie wysunięty na lewo od ekranu */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#playPauseBtn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-#playPauseBtn svg {
-    width: 30px;
-    height: 30px;
 }
 
 /* Wysunięty panel */
