@@ -13,45 +13,35 @@ const playIcon = document.getElementById('playIcon');
 const songTitle = document.getElementById('songTitle');
 const toggleButton = document.getElementById('toggleButton');
 const musicPlayer = document.getElementById('musicPlayer');
-const musicPlayerContainer = document.getElementById('musicPlayerContainer');
 const hideButton = document.getElementById('hideButton');
 
-// Initialize music player visibility
+// Ustawienie widoczności odtwarzacza na 'none'
 musicPlayer.style.display = "none";
 
-// Play/Pause Button Event Listener
+// Funkcja do odtwarzania/pauzowania
 playPauseBtn.addEventListener('click', function() {
     if (audio.paused) {
         audio.play();
-        playIcon.innerHTML = '<polygon points="10,10 10,20 20,15" fill="black" />'; // Change to pause icon
-        songTitle.innerHTML = " - Travis Scott"; // Show song title
+        playIcon.innerHTML = '<polygon points="10,10 10,20 20,15" fill="black" />'; // Ikona pauzy
+        songTitle.innerHTML = " - Travis Scott"; // Tytuł utworu
     } else {
         audio.pause();
-        playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="black" />'; // Change to play icon
-        songTitle.innerHTML = ""; // Hide song title
+        playIcon.innerHTML = '<polygon points="12,10 12,20 20,15" fill="black" />'; // Ikona odtwarzania
+        songTitle.innerHTML = ""; // Ukryj tytuł utworu
     }
 });
 
-// Toggle Music Player Display
+// Funkcja do rozwijania/zwijania odtwarzacza
 toggleButton.addEventListener('click', function() {
     if (musicPlayer.style.display === "none" || musicPlayer.style.display === "") {
-        musicPlayer.style.display = "block"; // Show player
-        musicPlayer.classList.add('show');
-        musicPlayer.classList.remove('hide'); // Ensure hide class is removed
+        musicPlayer.style.display = "block"; // Pokaż odtwarzacz
+        songTitle.innerHTML = " - Travis Scott"; // Przywróć tytuł utworu
     } else {
-        musicPlayer.classList.remove('show');
-        musicPlayer.classList.add('hide');
-        setTimeout(() => {
-            musicPlayer.style.display = "none"; // Hide player after animation
-        }, 300); // Wait for animation to complete
+        musicPlayer.style.display = "none"; // Ukryj odtwarzacz
     }
 });
 
-// Hide Button Event Listener
+// Funkcja do ukrywania odtwarzacza
 hideButton.addEventListener('click', function() {
-    musicPlayer.classList.remove('show');
-    musicPlayer.classList.add('hide');
-    setTimeout(() => {
-        musicPlayer.style.display = "none"; // Hide player after animation
-    }, 300); // Wait for animation to complete
+    musicPlayer.style.display = "none"; // Ukryj odtwarzacz po naciśnięciu przycisku
 });
