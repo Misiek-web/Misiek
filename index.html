@@ -55,6 +55,7 @@
             text-align: center; /* Wyśrodkowanie tekstu */
             color: white; /* Kolor tekstu */
             transition: transform 0.3s ease; /* Dodano efekt powiększenia przy najechaniu */
+            cursor: pointer; /* Kursor wskazuje, że widget jest klikalny */
         }
 
         .widget img {
@@ -129,46 +130,41 @@
     <section id="computer-components">
         <h2>Podzespoły Komputerowe</h2>
         <div class="widgets-container">
-            <div class="widget">
-                <img src="cpu_image.jpg" alt="Procesor (CPU)"> <!-- Zmień na odpowiednie zdjęcie -->
+            <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" class="widget">
+                <img src="cpu_image.jpg" alt="Procesor (CPU)">
                 <div class="widget-content">
                     <h3>Procesor (CPU)</h3>
-                    <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych. 
-                    <a href="https://www.intel.pl/content/www/pl/pl/gaming/resources/what-is-a-cpu.html" target="_blank">Dowiedz się więcej</a>.</p>
+                    <p>Centralna jednostka obliczeniowa, odpowiedzialna za przetwarzanie danych.</p>
                 </div>
-            </div>
-            <div class="widget">
-                <img src="motherboard_image.jpg" alt="Płyta główna"> <!-- Zmień na odpowiednie zdjęcie -->
+            </a>
+            <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" class="widget">
+                <img src="motherboard_image.jpg" alt="Płyta główna">
                 <div class="widget-content">
                     <h3>Płyta główna</h3>
-                    <p>Podstawa, na której zamontowane są inne podzespoły. 
-                    <a href="https://www.tomshardware.com/reviews/motherboard-buying-guide,5771.html" target="_blank">Dowiedz się więcej</a>.</p>
+                    <p>Podstawa, na której zamontowane są inne podzespoły.</p>
                 </div>
-            </div>
-            <div class="widget">
-                <img src="ram_image.jpg" alt="Pamięć RAM"> <!-- Zmień na odpowiednie zdjęcie -->
+            </a>
+            <a href="https://www.crucial.com/articles/about-memory/what-is-ram" class="widget">
+                <img src="ram_image.jpg" alt="Pamięć RAM">
                 <div class="widget-content">
                     <h3>Pamięć RAM</h3>
-                    <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe. 
-                    <a href="https://www.crucial.com/articles/about-memory/what-is-ram" target="_blank">Dowiedz się więcej</a>.</p>
+                    <p>RAM (Random Access Memory) to pamięć operacyjna, która przechowuje dane tymczasowe.</p>
                 </div>
-            </div>
-            <div class="widget">
-                <img src="gpu_image.jpg" alt="Karta graficzna (GPU)"> <!-- Zmień na odpowiednie zdjęcie -->
+            </a>
+            <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" class="widget">
+                <img src="gpu_image.jpg" alt="Karta graficzna (GPU)">
                 <div class="widget-content">
                     <h3>Karta graficzna (GPU)</h3>
-                    <p>Odpowiada za rendering grafiki. 
-                    <a href="https://www.nvidia.com/en-us/geforce/guides/what-is-a-gpu/" target="_blank">Dowiedz się więcej</a>.</p>
+                    <p>Odpowiada za rendering grafiki.</p>
                 </div>
-            </div>
-            <div class="widget">
-                <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)"> <!-- Zmień na odpowiednie zdjęcie -->
+            </a>
+            <a href="https://www.howtogeek.com/652276/what-is-the-difference-between-ssd-and-hdd/" class="widget">
+                <img src="storage_image.jpg" alt="Dysk twardy (HDD/SSD)">
                 <div class="widget-content">
                     <h3>Dysk twardy (HDD/SSD)</h3>
-                    <p>Przechowuje dane na stałe. 
-                    <a href="https://www.howtogeek.com/652276/what-is-the-difference-between-ssd-and-hdd/" target="_blank">Dowiedz się więcej</a>.</p>
+                    <p>Przechowuje dane na stałe.</p>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 </main>
