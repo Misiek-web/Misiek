@@ -29,6 +29,32 @@
     </button>
     <span id="songTitle"> - Travis Scott</span>
 </div>
+    
+<header>
+    <h1>Misiek Industries</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="pliki.html">Pliki</a></li>
+            <li><a href="#" id="contactLink">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Panel z odtwarzaczem muzyki -->
+<div id="musicPlayerContainer">
+    <div id="toggleButton">▶</div>
+    <div id="musicPlayer">
+        <button id="playPauseBtn">
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+                <circle cx="15" cy="15" r="15" fill="white" />
+                <polygon points="12,10 12,20 20,15" fill="black" />
+            </svg>
+        </button>
+        <span id="songTitle"> - Travis Scott</span>
+        <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
+    </div>
+</div>
 
 <audio id="audio" src="muzyka.mp3" preload="auto"></audio>
 
